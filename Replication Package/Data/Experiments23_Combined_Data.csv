@@ -1,0 +1,735 @@
+Experiment,Scenario,ResponseId,Role,Age,Gender,Physician,YearsExperience,Explanation,CorrectDose,Quality,DistanceInitial,DistanceFinal,Disagreement,Movement,AbsMovement,Improvement,WeightOnAdvice,EmotionalTrust,Outlier
+Experiment 2,1,R_2b2IC65bBogjVJs,Physician,6,Male,Physician,34,Global,4,Low,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2SelUAniCTuipX8,Physician,3,Male,Physician,7,Global,4,Low,2,2,2,0,0,0,0,4,FALSE
+Experiment 2,1,R_26o5a1yKOzmIYVv,Physician,4,Male,Physician,15,Global,4,Low,0,0,4,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_1jNAVZoO6X3Kjee,Physician,3,Male,Physician,10,Global,4,Low,0,0,4,0,0,0,0,2,FALSE
+Experiment 2,1,R_2v0uTaubBVXiPbG,Physician,3,Male,Physician,1,Global,4,Low,2,4,2,2,2,-2,1,3,FALSE
+Experiment 2,1,R_2aCFpWWk3iRtNrq,Physician,5,Male,Physician,25,Global,4,Low,2,2,2,0,0,0,0,3.6666666666666665,FALSE
+Experiment 2,1,R_VUqz3MIg2eWktlD,Physician,4,Male,Physician,18.5,Global,4,Low,4,4,8,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_3Eyhzwlr3tKYo2P,Physician,4,Male,Physician,16,Global,4,Low,2,2,2,0,0,0,0,3.6666666666666665,FALSE
+Experiment 2,1,R_2f428MNsBThrYil,Physician,3,Female,Physician,6,What,4,Low,0,0,4,0,0,0,0,3,FALSE
+Experiment 2,1,R_241Xk4fdJUSNbhj,Physician,3,Female,Physician,10,What,4,Low,0,4,4,4,4,-4,1,2,FALSE
+Experiment 2,1,R_3F4lal9l7SiinLD,Physician,4,Male,Physician,15,What,4,Low,0,0,4,0,0,0,0,2,FALSE
+Experiment 2,1,R_bq1ALmS2luaZoEF,Physician,4,Male,Physician,19,What,4,Low,0,2,4,2,2,-2,0.5,3,FALSE
+Experiment 2,1,R_Ab7hvwImY0Cn2UN,Physician,2,Female,Physician,2,What,4,Low,2,4,2,2,2,-2,1,3,FALSE
+Experiment 2,1,R_11byq0SOdhVYymb,Physician,3,Male,Physician,6,What,4,Low,6,4,2,-2,2,2,1,3.6666666666666665,FALSE
+Experiment 2,1,R_3nMkCeUMW7YbEGN,Physician,5,Female,Physician,26,What,4,Low,2,2,6,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_eQGHXRKS2ngd0xX,Physician,5,Male,Physician,21,What,4,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 2,1,R_3m3r3877o9GASIl,Physician,4,Male,Physician,12,What,4,Low,6,4,2,-2,2,2,1,3.6666666666666665,FALSE
+Experiment 2,1,R_u9Xhx965zgvtdZL,Physician,3,Male,Physician,4,Global,4,High,2,0,2,-2,2,2,1,3.3333333333333335,FALSE
+Experiment 2,1,R_2AEWmdkUZP8HSYl,Physician,3,Female,Physician,8,Global,4,High,0,0,0,0,0,0,NA,2.6666666666666665,NA
+Experiment 2,1,R_24qHjR7LJadgpOx,Physician,6,Male,Physician,33,Global,4,High,2,0,2,2,2,2,1,3.6666666666666665,FALSE
+Experiment 2,1,R_5swsuZtk522iIdb,Physician,4,Male,Physician,11,Global,4,High,3,0,3,3,3,3,1,2,FALSE
+Experiment 2,1,R_1eFTGg2JxILcAL1,Physician,3,Female,Physician,7,Global,4,High,2,2,2,0,0,0,0,2,FALSE
+Experiment 2,1,R_25TrMy5niJhjWhD,Physician,2,Male,Physician,2,Global,4,High,0,0,0,0,0,0,NA,4,NA
+Experiment 2,1,R_Q5I4A6T4VxSrqmd,Physician,4,Male,Physician,11,Global,4,High,2,0,2,2,2,2,1,3,FALSE
+Experiment 2,1,R_s7qfrgRNFHi1Qhb,Physician,2,Male,Physician,2,Global,4,High,8,4,8,-4,4,4,0.5,3.3333333333333335,FALSE
+Experiment 2,1,R_2OTRPXb7IkGJeEf,Physician,3,Male,Physician,15,What,4,High,2,1,2,-1,1,1,0.5,3,FALSE
+Experiment 2,1,R_1DSf84uq7zyPKPZ,Physician,5,Male,Physician,30,What,4,High,3,3,3,0,0,0,0,2,FALSE
+Experiment 2,1,R_1LbR4KPCbvmJOCW,Physician,4,Male,Physician,20,What,4,High,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_BDmHt2pz4FgRJoR,Physician,7,Male,Physician,40,What,4,High,4,4,4,0,0,0,0,3,FALSE
+Experiment 2,1,R_2ZQdnYmVe9jkfh2,Physician,5,Female,Physician,25,What,4,High,2,0,2,2,2,2,1,3,FALSE
+Experiment 2,1,R_z6xX4gJfHutDEfn,Physician,4,Female,Physician,20,What,4,High,2,2,2,0,0,0,0,1,FALSE
+Experiment 2,1,R_1IE4O6Vz5boIf9E,Physician,3,Male,Physician,3,What,4,High,2,0,2,-2,2,2,1,3,FALSE
+Experiment 2,1,R_2TZxi2XkhKq5PCX,Physician,4,Male,Physician,10,Global,4,Low,8,8,4,0,0,0,0,3,TRUE
+Experiment 2,1,R_1E0Y9T7IY4tLYFT,Physician,3,Male,Physician,10,Global,4,Low,1,1,3,0,0,0,0,2,FALSE
+Experiment 2,1,R_6P8W1ieyEWBCDF7,Physician,6,Male,Physician,10,Global,4,Low,0,2,4,2,2,-2,0.5,3,FALSE
+Experiment 2,1,R_2SHaRbAQnTvPHFH,Physician,3,Female,Physician,2,Global,4,Low,0,2,4,2,2,-2,0.5,2.6666666666666665,FALSE
+Experiment 2,1,R_1N8K9b8Np50Js9z,Physician,4,Male,Physician,15,Global,4,Low,0,4,4,4,4,-4,1,4,FALSE
+Experiment 2,1,R_3kbPgX4xGE2PZEM,Physician,2,Male,Physician,2,Global,4,Low,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_1jCfw9bFtucDtww,Physician,4,Male,Physician,15,Global,4,Low,2,2,2,0,0,0,0,3.6666666666666665,FALSE
+Experiment 2,1,R_1N4H6wXgnmcBbAP,Physician,3,Male,Physician,9,Global,4,Low,2,0,6,2,2,2,0.3333333333333333,2.6666666666666665,FALSE
+Experiment 2,1,R_3qCMRNZhSWHZT3W,Physician,2,Female,Physician,1,Global,4,Low,3,2,7,5,5,1,0.7142857142857143,3,FALSE
+Experiment 2,1,R_1jWghNzu5PlzLpE,Physician,3,Male,Physician,3,Global,4,Low,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_32XcMOBZRxZsyJs,Physician,3,Female,Physician,10,What,4,Low,2,2,2,-4,4,0,2,3.6666666666666665,TRUE
+Experiment 2,1,R_9Zuy66aSOYqXG01,Physician,4,Female,Physician,20,What,4,Low,0,0,4,0,0,0,0,2,FALSE
+Experiment 2,1,R_7805djyI4Mo3249,Physician,3,Female,Physician,11,What,4,Low,2,2,2,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_2uKhdKIO9n8UIX0,Physician,3,Male,Physician,9,What,4,Low,2,2,2,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,1,R_3GCl5SWyoCcITKj,Physician,3,Female,Physician,10,What,4,Low,2,2,6,0,0,0,0,2,FALSE
+Experiment 2,1,R_26g5vdu81I4u9mX,Physician,5,Male,Physician,25,What,4,Low,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_1l4YCFTqIyOBZEK,Physician,3,Male,Physician,8,What,4,Low,0,2,4,2,2,-2,0.5,2,FALSE
+Experiment 2,1,R_2wH9jtKNTo0Hxz7,Physician,5,Male,Physician,27,What,4,Low,2,0,6,2,2,2,0.3333333333333333,2.6666666666666665,FALSE
+Experiment 2,1,R_2dR3jH23et59Y1p,Physician,3,Male,Physician,5,What,4,Low,0,2,4,2,2,-2,0.5,2,FALSE
+Experiment 2,1,R_vTCzGBKJOKL1Yyt,Physician,4,Male,Physician,12,What,4,Low,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2rPjBssVehML3aS,Physician,2,Female,Physician,7,What,4,Low,1,1,3,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_2sbVs8bs7OZQBn2,Physician,4,Female,Physician,8,What,4,Low,1,1,5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_cA4oxquE8xfhsIh,Physician,3,Male,Physician,7,What,4,Low,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_3KTom1bRBkMYuvD,Physician,4,Female,Physician,17,Global,4,High,2,0,2,-2,2,2,1,2.6666666666666665,FALSE
+Experiment 2,1,R_2cjUlDu47JSODGg,Physician,3,Male,Physician,11,Global,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2sXwwKbRrreglSr,Physician,6,Male,Physician,30,Global,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_24dwrlbfsDa0SDk,Physician,3,Female,Physician,10,Global,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_QnwlRX8h36ulrdD,Physician,3,Male,Physician,3,Global,4,High,1,1,1,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_3niyW3mBupL1rWk,Physician,3,Male,Physician,10,Global,4,High,0,0,0,0,0,0,NA,4,NA
+Experiment 2,1,R_2SkHcBb5JXUTeLP,Physician,4,Female,Physician,22,Global,4,High,1,1,1,0,0,0,0,3,FALSE
+Experiment 2,1,R_RhuuJlXuMMIK3cJ,Physician,5,Male,Physician,30,Global,4,High,0,0,0,0,0,0,NA,3,NA
+Experiment 2,1,R_dgN8L8EQ4nCaUGR,Physician,5,Female,Physician,20,Global,4,High,8,1,8,-7,7,7,0.875,2.3333333333333335,FALSE
+Experiment 2,1,R_OJaI2B6T90Xh0TT,Physician,3,Male,Physician,14,Global,4,High,0,1,0,-1,1,-1,Inf,3,TRUE
+Experiment 2,1,R_26fs7gLs1mU9tK4,Physician,5,Male,Physician,25,Global,4,High,0,0,0,0,0,0,NA,3,NA
+Experiment 2,1,R_3k66KTZlhYayZfI,Physician,3,Female,Physician,9,What,4,High,1,2,1,3,3,-1,3,2.6666666666666665,TRUE
+Experiment 2,1,R_Q0Nu10eyzwuNuN3,Physician,4,Female,Physician,21,What,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_yUeIbarIIdfCCA1,Physician,5,Female,Physician,29,What,4,High,2,0,2,-2,2,2,1,3.3333333333333335,FALSE
+Experiment 2,1,R_ZqPv4fjIWR5tuff,Physician,3,Female,Physician,5,What,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2tExf7hI8aI2DwJ,Physician,3,Male,Physician,7,What,4,High,2,0,2,-2,2,2,1,4,FALSE
+Experiment 2,1,R_A5nEsTgaJ2kTjnb,Physician,3,Male,Physician,10,What,4,High,1,0,1,-1,1,1,1,3.3333333333333335,FALSE
+Experiment 2,1,R_30w1PyhT0jkHxOf,Physician,5,Male,Physician,25,What,4,High,2,0,2,-2,2,2,1,4,FALSE
+Experiment 2,1,R_3LcJ3MZsAVaTvGK,Physician,6,Female,Physician,40,What,4,High,2,0,2,-2,2,2,1,3.3333333333333335,FALSE
+Experiment 2,1,R_3Eur7jCDnhQ9bR4,Physician,2,Female,Physician,4,What,4,High,2,0,2,-2,2,2,1,3.6666666666666665,FALSE
+Experiment 2,1,R_3nGEoEfJzzr0KLW,Physician,3,Male,Physician,10,What,4,High,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_3EXeX29FFf1nywX,Pharmacist,2,Female,Non-Physician,5,Global,4,Low,2,2,2,0,0,0,0,2,FALSE
+Experiment 2,1,R_3G6TCwwptZsJz9u,Pharmacist,3,Female,Non-Physician,8,Global,4,Low,2,0,6,2,2,2,0.3333333333333333,1,FALSE
+Experiment 2,1,R_3lujizL1LsHKrAb,Pharmacist,2,Male,Non-Physician,4,Global,4,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_3ET3L8R5RURwbvX,Pharmacist,2,Female,Non-Physician,3,Global,4,Low,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_4IWzz1n8dZFgxC9,Pharmacist,2,Female,Non-Physician,1,Global,4,Low,2,0,6,2,2,2,0.3333333333333333,3.3333333333333335,FALSE
+Experiment 2,1,R_pKIj2OtBlFczvb3,Pharmacist,3,Female,Non-Physician,12,Global,4,Low,2,2,2,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_3kzIcI31AEw7ABD,Pharmacist,2,Female,Non-Physician,4,Global,4,Low,4,2,8,2,2,2,0.25,1,FALSE
+Experiment 2,1,R_TqntsRaAqffyg6Z,Pharmacist,3,Female,Non-Physician,11,Global,4,Low,2,2,2,0,0,0,0,1,FALSE
+Experiment 2,1,R_1kXhkhQCqu7452b,Pharmacist,2,Male,Non-Physician,1,Global,4,Low,1,1,5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_2xKtJoPccBHEi6P,Pharmacist,3,Female,Non-Physician,17,Global,4,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_SCbZaptshHfZAkx,Pharmacist,2,Female,Non-Physician,1,Global,4,Low,2,2,6,0,0,0,0,2,FALSE
+Experiment 2,1,R_0JSirM3BnOEXsOZ,Pharmacist,2,Female,Non-Physician,3,What,4,Low,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2PaLUePfY1iKew6,Pharmacist,3,Female,Non-Physician,11,What,4,Low,0,0,4,0,0,0,0,1.3333333333333333,FALSE
+Experiment 2,1,R_3PHmaKMHSahfNnu,Pharmacist,5,Male,Non-Physician,35,What,4,Low,2,0,6,2,2,2,0.3333333333333333,2,FALSE
+Experiment 2,1,R_2zUSMqPSijcUaaV,Pharmacist,3,Female,Non-Physician,19,What,4,Low,2,2,2,0,0,0,0,2,FALSE
+Experiment 2,1,R_cOYd8DH2WscUcSJ,Pharmacist,2,Female,Non-Physician,1,What,4,Low,1,2,5,3,3,-1,0.6,3.3333333333333335,FALSE
+Experiment 2,1,R_zSTbnEoSBBP8U8h,Pharmacist,2,Female,Non-Physician,2,What,4,Low,2,2,2,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,1,R_1mtjzhK56EAfyXO,Pharmacist,3,Female,Non-Physician,8,What,4,Low,3,3,7,0,0,0,0,1.3333333333333333,FALSE
+Experiment 2,1,R_1kLAgmcBfXpy7EI,Pharmacist,2,Male,Non-Physician,6,What,4,Low,1,1,5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_2urO1kmn9CzgTBw,Pharmacist,2,Female,Non-Physician,4,What,4,Low,2,2,6,0,0,0,0,1,FALSE
+Experiment 2,1,R_24r7L124ZwiKXuv,Pharmacist,2,Female,Non-Physician,5.5,What,4,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_28Y6HPM1hpbwWXk,Pharmacist,3,Female,Non-Physician,13,Global,4,High,2,2,2,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,1,R_6ESsAfiMrrO9sEp,Pharmacist,2,Female,Non-Physician,2.5,Global,4,High,8,4,8,-4,4,4,0.5,3,FALSE
+Experiment 2,1,R_27pza7MveF7xvp2,Pharmacist,2,Male,Non-Physician,4,Global,4,High,2,2,2,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_77mSLMYZVKS0OGt,Pharmacist,2,Male,Non-Physician,5,Global,4,High,0,0,0,0,0,0,NA,3.3333333333333335,NA
+Experiment 2,1,R_PU90HBrE0qnt60h,Pharmacist,2,Female,Non-Physician,6,Global,4,High,1,0,1,1,1,1,1,3.3333333333333335,FALSE
+Experiment 2,1,R_Xifoq6hUnlb08XT,Pharmacist,2,Female,Non-Physician,5,Global,4,High,0,0,0,0,0,0,NA,3,NA
+Experiment 2,1,R_2e8oMbOKJVX0cOa,Pharmacist,2,Female,Non-Physician,2,Global,4,High,2,1,2,1,1,1,0.5,3,FALSE
+Experiment 2,1,R_1gSfXIhaVEc5Gfh,Pharmacist,3,Female,Non-Physician,14,Global,4,High,0,0,0,0,0,0,NA,3,NA
+Experiment 2,1,R_6D83jPxMf9J7vA5,Pharmacist,5,Female,Non-Physician,30,Global,4,High,1,0,1,1,1,1,1,1,FALSE
+Experiment 2,1,R_3EznbovwkZV5M2q,Pharmacist,2,Female,Non-Physician,2.5,Global,4,High,2,2,2,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_2uHbuQ53HTCuFB7,Pharmacist,2,Female,Non-Physician,3,What,4,High,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_3egy7nmigCn9gkT,Pharmacist,3,Female,Non-Physician,10,What,4,High,2,0,2,-2,2,2,1,4,FALSE
+Experiment 2,1,R_1jkdfwXyuQ1iZkV,Pharmacist,2,Female,Non-Physician,5,What,4,High,0,0,0,0,0,0,NA,3.6666666666666665,NA
+Experiment 2,1,R_2xztx2NpRtyfPIJ,Pharmacist,4,Female,Non-Physician,19,What,4,High,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_SPlj6CGMNy5Cvsd,Pharmacist,2,Female,Non-Physician,5,What,4,High,0,0,0,0,0,0,NA,2.6666666666666665,NA
+Experiment 2,1,R_2zqeAARDlROrIWb,Pharmacist,2,Male,Non-Physician,3,What,4,High,2,1,2,1,1,1,0.5,2.6666666666666665,FALSE
+Experiment 2,1,R_xGCsB65GaaG4eit,Pharmacist,2,Male,Non-Physician,8,What,4,High,4,4,4,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,1,R_roTKnaO3dGvIbtL,Pharmacist,5,Female,Non-Physician,6,What,4,High,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_2YRhekCq83mF3rY,Pharmacist,4,Female,Non-Physician,14,What,4,High,2,0,2,-2,2,2,1,2.6666666666666665,FALSE
+Experiment 2,1,R_1IhhXREe3Ilf5wG,Pharmacist,2,Female,Non-Physician,6,What,4,High,4,4,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_1QgqxJyQRgaIO7I,Pharmacist,2,Female,Non-Physician,6,What,4,High,0,0,0,0,0,0,NA,3,NA
+Experiment 2,1,R_3hhTR4ZJcy3JViN,Pharmacist,4,Female,Non-Physician,22,What,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_2YG2pfWH84D2XjI,Other,2,Female,Non-Physician,6,Global,4,Low,2,0,6,2,2,2,0.3333333333333333,2,FALSE
+Experiment 2,1,R_55cLSzu6thGu56p,Other,6,Female,Non-Physician,15,Global,4,Low,2,2,2,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,1,R_3ezwyreBOaW5nhK,Other,3,Female,Non-Physician,9,What,4,Low,0,4,4,4,4,-4,1,4,FALSE
+Experiment 2,1,R_3M4f0IMuQ17w3bs,Other,4,Female,Non-Physician,7,What,4,Low,2,2,6,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_PG6a0Z6Fej6YvV7,Other,3,Male,Non-Physician,9,Global,4,High,2,6,2,4,4,-4,2,1,TRUE
+Experiment 2,1,R_2DUCUR5lHK5sk3k,Other,3,Female,Non-Physician,15,Global,4,Low,2,4,2,2,2,-2,1,3,FALSE
+Experiment 2,1,R_SBIrnNa4UxrF7cB,Other,4,Female,Non-Physician,4,Global,4,Low,2,2,2,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,1,R_8uJnBG75TDMSydj,Other,4,Female,Non-Physician,3,What,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,1,R_1IygmFUZUU464W7,Other,5,Male,Non-Physician,36,Global,4,Low,2,2,2,0,0,0,0,2,FALSE
+Experiment 2,1,R_xzO5EQfH1KAJ4v7,Physician,4,Female,Physician,20,Global,4,Low,0,2,4,2,2,-2,0.5,2.6666666666666665,FALSE
+Experiment 2,1,R_3KCMXiKEOhrx9zh,Physician,3,Female,Physician,14,What,4,Low,2,2,2,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,1,R_OwZeVcSaegY5vk5,Physician,4,Female,Physician,8,Global,4,High,2,0,2,-2,2,2,1,4,FALSE
+Experiment 2,1,R_3kvrwlU2VjHNJ8A,Physician,2,Male,Physician,3,Global,4,High,2,0,2,-2,2,2,1,3,FALSE
+Experiment 2,1,R_3gSLxPiHIUgi1yf,Physician,3,Male,Physician,10,What,4,High,2,2,2,0,0,0,0,3,FALSE
+Experiment 2,2,R_2b2IC65bBogjVJs,Physician,6,Male,Physician,34,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2SelUAniCTuipX8,Physician,3,Male,Physician,7,Global,1.5,High,2.5,0.5,2.5,-2,2,2,0.8,4,FALSE
+Experiment 2,2,R_26o5a1yKOzmIYVv,Physician,4,Male,Physician,15,Global,1.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,2.6666666666666665,FALSE
+Experiment 2,2,R_1jNAVZoO6X3Kjee,Physician,3,Male,Physician,10,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_2v0uTaubBVXiPbG,Physician,3,Male,Physician,1,Global,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,3,FALSE
+Experiment 2,2,R_2aCFpWWk3iRtNrq,Physician,5,Male,Physician,25,Global,1.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_VUqz3MIg2eWktlD,Physician,4,Male,Physician,18.5,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,2.3333333333333335,FALSE
+Experiment 2,2,R_3Eyhzwlr3tKYo2P,Physician,4,Male,Physician,16,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2f428MNsBThrYil,Physician,3,Female,Physician,6,What,1.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_241Xk4fdJUSNbhj,Physician,3,Female,Physician,10,What,1.5,High,0.5,1.5,0.5,1,1,-1,2,1.3333333333333333,TRUE
+Experiment 2,2,R_3F4lal9l7SiinLD,Physician,4,Male,Physician,15,What,1.5,High,0.5,0.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_bq1ALmS2luaZoEF,Physician,4,Male,Physician,19,What,1.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 2,2,R_Ab7hvwImY0Cn2UN,Physician,2,Female,Physician,2,What,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_11byq0SOdhVYymb,Physician,3,Male,Physician,6,What,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,2.6666666666666665,FALSE
+Experiment 2,2,R_3nMkCeUMW7YbEGN,Physician,5,Female,Physician,26,What,1.5,High,1.5,1.5,1.5,0,0,0,0,4,FALSE
+Experiment 2,2,R_eQGHXRKS2ngd0xX,Physician,5,Male,Physician,21,What,1.5,High,0.5,0.5,0.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,2,R_3m3r3877o9GASIl,Physician,4,Male,Physician,12,What,1.5,High,1.5,1.5,1.5,0,0,0,0,4,FALSE
+Experiment 2,2,R_u9Xhx965zgvtdZL,Physician,3,Male,Physician,4,Global,1.5,Low,0.5,1.5,2.5,1,1,-1,0.4,3.6666666666666665,FALSE
+Experiment 2,2,R_2AEWmdkUZP8HSYl,Physician,3,Female,Physician,8,Global,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,2.3333333333333335,FALSE
+Experiment 2,2,R_24qHjR7LJadgpOx,Physician,6,Male,Physician,33,Global,1.5,Low,0.5,0.5,2.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_5swsuZtk522iIdb,Physician,4,Male,Physician,11,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_1eFTGg2JxILcAL1,Physician,3,Female,Physician,7,Global,1.5,Low,0.5,0.5,2.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_25TrMy5niJhjWhD,Physician,2,Male,Physician,2,Global,1.5,Low,2.5,3,0.5,0.5,0.5,-0.5,1,4,FALSE
+Experiment 2,2,R_Q5I4A6T4VxSrqmd,Physician,4,Male,Physician,11,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_s7qfrgRNFHi1Qhb,Physician,2,Male,Physician,2,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_2OTRPXb7IkGJeEf,Physician,3,Male,Physician,15,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_1DSf84uq7zyPKPZ,Physician,5,Male,Physician,30,What,1.5,Low,1.5,2,1.5,0.5,0.5,-0.5,0.3333333333333333,3.6666666666666665,FALSE
+Experiment 2,2,R_1LbR4KPCbvmJOCW,Physician,4,Male,Physician,20,What,1.5,Low,2.5,2.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_BDmHt2pz4FgRJoR,Physician,7,Male,Physician,40,What,1.5,Low,0.5,0.5,2.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2ZQdnYmVe9jkfh2,Physician,5,Female,Physician,25,What,1.5,Low,1.5,3,1.5,1.5,1.5,-1.5,1,3,FALSE
+Experiment 2,2,R_z6xX4gJfHutDEfn,Physician,4,Female,Physician,20,What,1.5,Low,0.5,0.5,2.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_1IE4O6Vz5boIf9E,Physician,3,Male,Physician,3,What,1.5,Low,2.5,2.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2TZxi2XkhKq5PCX,Physician,4,Male,Physician,10,Global,1.5,High,2.5,2.5,2.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_1E0Y9T7IY4tLYFT,Physician,3,Male,Physician,10,Global,1.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_6P8W1ieyEWBCDF7,Physician,6,Male,Physician,10,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2SHaRbAQnTvPHFH,Physician,3,Female,Physician,2,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_1N8K9b8Np50Js9z,Physician,4,Male,Physician,15,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3.6666666666666665,FALSE
+Experiment 2,2,R_3kbPgX4xGE2PZEM,Physician,2,Male,Physician,2,Global,1.5,High,0.5,0.5,0.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,2,R_1jCfw9bFtucDtww,Physician,4,Male,Physician,15,Global,1.5,High,1.5,0,1.5,-1.5,1.5,1.5,1,4,FALSE
+Experiment 2,2,R_1N4H6wXgnmcBbAP,Physician,3,Male,Physician,9,Global,1.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_3qCMRNZhSWHZT3W,Physician,2,Female,Physician,1,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_1jWghNzu5PlzLpE,Physician,3,Male,Physician,3,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_32XcMOBZRxZsyJs,Physician,3,Female,Physician,10,What,1.5,High,0.5,2.5,0.5,2,2,-2,4,3,TRUE
+Experiment 2,2,R_9Zuy66aSOYqXG01,Physician,4,Female,Physician,20,What,1.5,High,1.5,0,1.5,-1.5,1.5,1.5,1,3,FALSE
+Experiment 2,2,R_7805djyI4Mo3249,Physician,3,Female,Physician,11,What,1.5,High,0.5,0.5,0.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_2uKhdKIO9n8UIX0,Physician,3,Male,Physician,9,What,1.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 2,2,R_3GCl5SWyoCcITKj,Physician,3,Female,Physician,10,What,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,3,FALSE
+Experiment 2,2,R_26g5vdu81I4u9mX,Physician,5,Male,Physician,25,What,1.5,High,2.5,2.5,2.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_1l4YCFTqIyOBZEK,Physician,3,Male,Physician,8,What,1.5,High,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_2wH9jtKNTo0Hxz7,Physician,5,Male,Physician,27,What,1.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2dR3jH23et59Y1p,Physician,3,Male,Physician,5,What,1.5,High,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_vTCzGBKJOKL1Yyt,Physician,4,Male,Physician,12,What,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3.6666666666666665,FALSE
+Experiment 2,2,R_2rPjBssVehML3aS,Physician,2,Female,Physician,7,What,1.5,High,0,0,0,0,0,0,NA,2.6666666666666665,NA
+Experiment 2,2,R_2sbVs8bs7OZQBn2,Physician,4,Female,Physician,8,What,1.5,High,2.5,2.5,2.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_cA4oxquE8xfhsIh,Physician,3,Male,Physician,7,What,1.5,High,1.5,1.5,1.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,2,R_3KTom1bRBkMYuvD,Physician,4,Female,Physician,17,Global,1.5,Low,0.5,2.5,2.5,2,2,-2,0.8,2,FALSE
+Experiment 2,2,R_2cjUlDu47JSODGg,Physician,3,Male,Physician,11,Global,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,2,FALSE
+Experiment 2,2,R_2sXwwKbRrreglSr,Physician,6,Male,Physician,30,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_24dwrlbfsDa0SDk,Physician,3,Female,Physician,10,Global,1.5,Low,0.5,2.5,2.5,2,2,-2,0.8,2.3333333333333335,FALSE
+Experiment 2,2,R_QnwlRX8h36ulrdD,Physician,3,Male,Physician,3,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_3niyW3mBupL1rWk,Physician,3,Male,Physician,10,Global,1.5,Low,2.5,3,0.5,0.5,0.5,-0.5,1,3,FALSE
+Experiment 2,2,R_2SkHcBb5JXUTeLP,Physician,4,Female,Physician,22,Global,1.5,Low,3.5,3.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_RhuuJlXuMMIK3cJ,Physician,5,Male,Physician,30,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_dgN8L8EQ4nCaUGR,Physician,5,Female,Physician,20,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_OJaI2B6T90Xh0TT,Physician,3,Male,Physician,14,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_26fs7gLs1mU9tK4,Physician,5,Male,Physician,25,Global,1.5,Low,0.5,0.5,2.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_3k66KTZlhYayZfI,Physician,3,Female,Physician,9,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_Q0Nu10eyzwuNuN3,Physician,4,Female,Physician,21,What,1.5,Low,0.5,3.5,2.5,3,3,-3,1.2,4,TRUE
+Experiment 2,2,R_yUeIbarIIdfCCA1,Physician,5,Female,Physician,29,What,1.5,Low,2.5,3.5,0.5,1,1,-1,2,3,TRUE
+Experiment 2,2,R_ZqPv4fjIWR5tuff,Physician,3,Female,Physician,5,What,1.5,Low,1.5,3.5,1.5,2,2,-2,1.3333333333333333,4,TRUE
+Experiment 2,2,R_2tExf7hI8aI2DwJ,Physician,3,Male,Physician,7,What,1.5,Low,3.5,4.5,0.5,1,1,-1,2,4,TRUE
+Experiment 2,2,R_A5nEsTgaJ2kTjnb,Physician,3,Male,Physician,10,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_30w1PyhT0jkHxOf,Physician,5,Male,Physician,25,What,1.5,Low,1.5,3,1.5,1.5,1.5,-1.5,1,4,FALSE
+Experiment 2,2,R_3LcJ3MZsAVaTvGK,Physician,6,Female,Physician,40,What,1.5,Low,2.5,2.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_3Eur7jCDnhQ9bR4,Physician,2,Female,Physician,4,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3.6666666666666665,FALSE
+Experiment 2,2,R_3nGEoEfJzzr0KLW,Physician,3,Male,Physician,10,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_3EXeX29FFf1nywX,Pharmacist,2,Female,Non-Physician,5,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_3G6TCwwptZsJz9u,Pharmacist,3,Female,Non-Physician,8,Global,1.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_3lujizL1LsHKrAb,Pharmacist,2,Male,Non-Physician,4,Global,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,1.6666666666666667,FALSE
+Experiment 2,2,R_3ET3L8R5RURwbvX,Pharmacist,2,Female,Non-Physician,3,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,2,FALSE
+Experiment 2,2,R_4IWzz1n8dZFgxC9,Pharmacist,2,Female,Non-Physician,1,Global,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,4,FALSE
+Experiment 2,2,R_pKIj2OtBlFczvb3,Pharmacist,3,Female,Non-Physician,12,Global,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,2,FALSE
+Experiment 2,2,R_3kzIcI31AEw7ABD,Pharmacist,2,Female,Non-Physician,4,Global,1.5,High,2.5,2.5,2.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_TqntsRaAqffyg6Z,Pharmacist,3,Female,Non-Physician,11,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_1kXhkhQCqu7452b,Pharmacist,2,Male,Non-Physician,1,Global,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2xKtJoPccBHEi6P,Pharmacist,3,Female,Non-Physician,17,Global,1.5,High,0.5,0.5,0.5,1,1,0,2,3.6666666666666665,TRUE
+Experiment 2,2,R_SCbZaptshHfZAkx,Pharmacist,2,Female,Non-Physician,1,Global,1.5,High,0.5,0.5,0.5,1,1,0,2,3.3333333333333335,TRUE
+Experiment 2,2,R_0JSirM3BnOEXsOZ,Pharmacist,2,Female,Non-Physician,3,What,1.5,High,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_2PaLUePfY1iKew6,Pharmacist,3,Female,Non-Physician,11,What,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,2,FALSE
+Experiment 2,2,R_3PHmaKMHSahfNnu,Pharmacist,5,Male,Non-Physician,35,What,1.5,High,2.5,2.5,2.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_2zUSMqPSijcUaaV,Pharmacist,3,Female,Non-Physician,19,What,1.5,High,2.5,2.5,2.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_cOYd8DH2WscUcSJ,Pharmacist,2,Female,Non-Physician,1,What,1.5,High,2.5,0.5,2.5,-2,2,2,0.8,3.6666666666666665,FALSE
+Experiment 2,2,R_zSTbnEoSBBP8U8h,Pharmacist,2,Female,Non-Physician,2,What,1.5,High,0.5,0.5,0.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,2,R_1mtjzhK56EAfyXO,Pharmacist,3,Female,Non-Physician,8,What,1.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_1kLAgmcBfXpy7EI,Pharmacist,2,Male,Non-Physician,6,What,1.5,High,1.5,0.5,1.5,-1,1,1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2urO1kmn9CzgTBw,Pharmacist,2,Female,Non-Physician,4,What,1.5,High,2.5,0,2.5,-2.5,2.5,2.5,1,2.6666666666666665,FALSE
+Experiment 2,2,R_24r7L124ZwiKXuv,Pharmacist,2,Female,Non-Physician,5.5,What,1.5,High,0.5,0.5,0.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_28Y6HPM1hpbwWXk,Pharmacist,3,Female,Non-Physician,13,Global,1.5,Low,0.5,0.5,3.5,1,1,0,0.2857142857142857,3.6666666666666665,FALSE
+Experiment 2,2,R_6ESsAfiMrrO9sEp,Pharmacist,2,Female,Non-Physician,2.5,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_27pza7MveF7xvp2,Pharmacist,2,Male,Non-Physician,4,Global,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,4,FALSE
+Experiment 2,2,R_77mSLMYZVKS0OGt,Pharmacist,2,Male,Non-Physician,5,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_PU90HBrE0qnt60h,Pharmacist,2,Female,Non-Physician,6,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_Xifoq6hUnlb08XT,Pharmacist,2,Female,Non-Physician,5,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_2e8oMbOKJVX0cOa,Pharmacist,2,Female,Non-Physician,2,Global,1.5,Low,0.5,0.5,2.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_1gSfXIhaVEc5Gfh,Pharmacist,3,Female,Non-Physician,14,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 2,2,R_6D83jPxMf9J7vA5,Pharmacist,5,Female,Non-Physician,30,Global,1.5,Low,0.5,0.5,2.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_3EznbovwkZV5M2q,Pharmacist,2,Female,Non-Physician,2.5,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_2uHbuQ53HTCuFB7,Pharmacist,2,Female,Non-Physician,3,What,1.5,Low,0.5,1.5,2.5,1,1,-1,0.4,2.3333333333333335,FALSE
+Experiment 2,2,R_3egy7nmigCn9gkT,Pharmacist,3,Female,Non-Physician,10,What,1.5,Low,0.5,2,2.5,1.5,1.5,-1.5,0.6,2.3333333333333335,FALSE
+Experiment 2,2,R_1jkdfwXyuQ1iZkV,Pharmacist,2,Female,Non-Physician,5,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2xztx2NpRtyfPIJ,Pharmacist,4,Female,Non-Physician,19,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 2,2,R_SPlj6CGMNy5Cvsd,Pharmacist,2,Female,Non-Physician,5,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2zqeAARDlROrIWb,Pharmacist,2,Male,Non-Physician,3,What,1.5,Low,0.5,0.5,2.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_xGCsB65GaaG4eit,Pharmacist,2,Male,Non-Physician,8,What,1.5,Low,0.5,1.5,2.5,1,1,-1,0.4,4,FALSE
+Experiment 2,2,R_roTKnaO3dGvIbtL,Pharmacist,5,Female,Non-Physician,6,What,1.5,Low,1.5,4.5,1.5,3,3,-3,2,3,TRUE
+Experiment 2,2,R_2YRhekCq83mF3rY,Pharmacist,4,Female,Non-Physician,14,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_1IhhXREe3Ilf5wG,Pharmacist,2,Female,Non-Physician,6,What,1.5,Low,0.5,0.5,2.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_1QgqxJyQRgaIO7I,Pharmacist,2,Female,Non-Physician,6,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_3hhTR4ZJcy3JViN,Pharmacist,4,Female,Non-Physician,22,What,1.5,Low,1.5,2.5,1.5,1,1,-1,0.6666666666666666,3,FALSE
+Experiment 2,2,R_2YG2pfWH84D2XjI,Other,2,Female,Non-Physician,6,Global,1.5,High,2.5,0.5,2.5,-2,2,2,0.8,2,FALSE
+Experiment 2,2,R_55cLSzu6thGu56p,Other,6,Female,Non-Physician,15,Global,1.5,High,2.5,1.5,2.5,-1,1,1,0.4,4,FALSE
+Experiment 2,2,R_3ezwyreBOaW5nhK,Other,3,Female,Non-Physician,9,What,1.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,4,FALSE
+Experiment 2,2,R_3M4f0IMuQ17w3bs,Other,4,Female,Non-Physician,7,What,1.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_PG6a0Z6Fej6YvV7,Other,3,Male,Non-Physician,9,Global,1.5,Low,4.5,8.5,1.5,4,4,-4,2.6666666666666665,3,TRUE
+Experiment 2,2,R_2DUCUR5lHK5sk3k,Other,3,Female,Non-Physician,15,Global,1.5,High,1.5,1.5,1.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_SBIrnNa4UxrF7cB,Other,4,Female,Non-Physician,4,Global,1.5,High,2.5,0,2.5,-2.5,2.5,2.5,1,3.3333333333333335,FALSE
+Experiment 2,2,R_8uJnBG75TDMSydj,Other,4,Female,Non-Physician,3,What,1.5,Low,1.5,1.5,1.5,0,0,0,0,3,FALSE
+Experiment 2,2,R_1IygmFUZUU464W7,Other,5,Male,Non-Physician,36,Global,1.5,High,2.5,2.5,2.5,0,0,0,0,2,FALSE
+Experiment 2,2,R_xzO5EQfH1KAJ4v7,Physician,4,Female,Physician,20,Global,1.5,High,2.5,2.5,2.5,0,0,0,0,1,FALSE
+Experiment 2,2,R_3KCMXiKEOhrx9zh,Physician,3,Female,Physician,14,What,1.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 2,2,R_OwZeVcSaegY5vk5,Physician,4,Female,Physician,8,Global,1.5,Low,2.5,2.5,0.5,0,0,0,0,4,FALSE
+Experiment 2,2,R_3kvrwlU2VjHNJ8A,Physician,2,Male,Physician,3,Global,1.5,Low,1.5,1.5,1.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 2,2,R_3gSLxPiHIUgi1yf,Physician,3,Male,Physician,10,What,1.5,Low,2.5,2.5,0.5,0,0,0,0,4,FALSE
+Experiment 3,2,R_1dLhBfayzPOwZEw,Pharmacist,40,Female,Non-Physician,18,What + Why,9,High,1,1,1,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,1,R_3fJXFlMwj4CC3Aw,Physician,29,Female,Physician,3.5,What,5.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_3fJXFlMwj4CC3Aw,Physician,29,Female,Physician,3.5,What,9,Low,1,1.5,3,0.5,0.5,-0.5,0.16666666666666666,2,FALSE
+Experiment 3,1,R_1LzV22y8v6kXwQ1,Other,25,Male,Non-Physician,1,Global,5.5,High,3,1.5,3,1.5,1.5,1.5,0.5,2,FALSE
+Experiment 3,2,R_1LzV22y8v6kXwQ1,Other,25,Male,Non-Physician,1,Global,9,Low,2,2,6,0,0,0,0,1,FALSE
+Experiment 3,1,R_1Ft9F5bRvmyGcKA,Other,28,Male,Non-Physician,5.5,What,5.5,High,1,0,1,1,1,1,1,3,FALSE
+Experiment 3,2,R_1Ft9F5bRvmyGcKA,Other,28,Male,Non-Physician,5.5,What,9,Low,2.5,2.5,6.5,0,0,0,0,1,FALSE
+Experiment 3,1,R_1rog6xPFsRQueyQ,Physician,26,Female,Physician,5,What,5.5,Low,5.5,1,9.5,6.5,6.5,4.5,0.6842105263157895,1,FALSE
+Experiment 3,2,R_1rog6xPFsRQueyQ,Physician,26,Female,Physician,5,What,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,1,R_XvNhkliyoyHXwe5,Other,28,Male,Non-Physician,1.5,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_XvNhkliyoyHXwe5,Other,28,Male,Non-Physician,1.5,What + Why + How,9,High,1,1,1,0,0,0,0,4,FALSE
+Experiment 3,1,R_3pbwf5nf8Z4BNNd,Other,28,Female,Non-Physician,2.5,Global,5.5,Low,3.5,3.5,7.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3pbwf5nf8Z4BNNd,Other,28,Female,Non-Physician,2.5,Global,9,High,1,1,1,0,0,0,0,2,FALSE
+Experiment 3,1,R_3MRrNBtKLij3z6n,Pharmacist,39,Female,Non-Physician,15,What,5.5,Low,0.5,0.5,3.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3MRrNBtKLij3z6n,Pharmacist,39,Female,Non-Physician,15,What,9,High,1,1,1,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_RzqYSx5QruqvR4d,Other,37,Female,Non-Physician,10,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_RzqYSx5QruqvR4d,Other,37,Female,Non-Physician,10,What + Why + How,9,High,0,0,0,0,0,0,NA,3.6666666666666665,FALSE
+Experiment 3,1,R_XG8vJ02DFc7OUTL,Physician,28,Female,Physician,1.5,What + Why + How,5.5,High,5.5,0.5,5.5,5,5,5,0.9090909090909091,4,FALSE
+Experiment 3,2,R_XG8vJ02DFc7OUTL,Physician,28,Female,Physician,1.5,What + Why + How,9,Low,1,1,5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,1,R_33DAP683CksPF6o,Other,31,Female,Non-Physician,2,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,3.6666666666666665,FALSE
+Experiment 3,2,R_33DAP683CksPF6o,Other,31,Female,Non-Physician,2,What + Why,9,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,1,R_3Ec1iNRfVtsOPdz,Other,39,Female,Non-Physician,10,Global,5.5,High,3,0.5,3,2.5,2.5,2.5,0.8333333333333334,3,FALSE
+Experiment 3,2,R_3Ec1iNRfVtsOPdz,Other,39,Female,Non-Physician,10,Global,9,Low,1.5,1.5,2.5,0,0,0,0,1,FALSE
+Experiment 3,1,R_2OZ3FEa3dhJXKsI,Physician,30,Male,Physician,1,What,5.5,Low,2,2,6,0,0,0,0,1,FALSE
+Experiment 3,2,R_2OZ3FEa3dhJXKsI,Physician,30,Male,Physician,1,What,9,High,0.5,0.5,0.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_1mKHXAvUzbFl7oV,Physician,33,Female,Physician,3,Global,5.5,High,2,0,2,2,2,2,1,2.6666666666666665,FALSE
+Experiment 3,2,R_1mKHXAvUzbFl7oV,Physician,33,Female,Physician,3,Global,9,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,1,R_4GG6SRZAQD50Qhz,Physician,65,Male,Physician,40,What,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3,FALSE
+Experiment 3,2,R_4GG6SRZAQD50Qhz,Physician,65,Male,Physician,40,What,9,Low,1,4,3,3,3,-3,1,2.3333333333333335,FALSE
+Experiment 3,2,R_3gN1dZrsMUomgi9,Physician,50,Female,Physician,22,What + Why + How,9,Low,1,4,5,5,5,-3,1,3.3333333333333335,FALSE
+Experiment 3,1,R_2qDXAXZX2alJ6MC,Other,59,Female,Non-Physician,24,What + Why,5.5,High,3,0.5,3,2.5,2.5,2.5,0.8333333333333334,2,FALSE
+Experiment 3,2,R_2qDXAXZX2alJ6MC,Other,59,Female,Non-Physician,24,What + Why,9,Low,1.5,1.5,5.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_1EdivgMft8nFss3,Physician,38,Male,Physician,7,What + Why + How,5.5,High,3,0,3,3,3,3,1,3,FALSE
+Experiment 3,2,R_1EdivgMft8nFss3,Physician,38,Male,Physician,7,What + Why + How,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,2,R_3EfXy8XauDC9UTM,Physician,43,Male,Physician,10,What,9,Low,1,1,5,0,0,0,0,2,FALSE
+Experiment 3,1,R_25FpQbkyoffXl8P,Physician,27,Male,Physician,3,Global,5.5,High,1,0.5,1,-0.5,0.5,0.5,0.5,3,FALSE
+Experiment 3,2,R_25FpQbkyoffXl8P,Physician,27,Male,Physician,3,Global,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_33jMscIv2QpXOPj,Other,44,Female,Non-Physician,14,What + Why,5.5,Low,2.5,2.5,6.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_33jMscIv2QpXOPj,Other,44,Female,Non-Physician,14,What + Why,9,High,1,0,1,-1,1,1,1,3.6666666666666665,FALSE
+Experiment 3,1,R_PNFLxtAZ7Ig7qr7,Pharmacist,35,NA,Non-Physician,10,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.6666666666666665,FALSE
+Experiment 3,2,R_PNFLxtAZ7Ig7qr7,Pharmacist,35,NA,Non-Physician,10,What + Why + How,9,Low,1,1,3,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,1,R_3KI6GrgOsXm3OVV,Physician,35,Male,Physician,4,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3KI6GrgOsXm3OVV,Physician,35,Male,Physician,4,What + Why + How,9,High,0,0,0,0,0,0,NA,2.6666666666666665,FALSE
+Experiment 3,1,R_pKU12R50xd4HZRL,Physician,34,Female,Physician,3,Global,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3.3333333333333335,FALSE
+Experiment 3,2,R_pKU12R50xd4HZRL,Physician,34,Female,Physician,3,Global,9,Low,1,1.5,3,0.5,0.5,-0.5,0.16666666666666666,2,FALSE
+Experiment 3,1,R_8AGIq2rYpDcjcIx,Physician,38,Male,Physician,7,What + Why + How,5.5,Low,1.5,1.5,5.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_8AGIq2rYpDcjcIx,Physician,38,Male,Physician,7,What + Why + How,9,High,0,0,0,0,0,0,NA,3.3333333333333335,FALSE
+Experiment 3,1,R_6JuE3atO72mumOt,Other,NA,NA,Non-Physician,NA,What + Why + How,5.5,Low,3,3,7,0,0,0,0,NA,FALSE
+Experiment 3,2,R_6JuE3atO72mumOt,Other,NA,NA,Non-Physician,NA,What + Why + How,9,High,1.5,1.5,1.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3ivPdamipgs6qYF,Other,NA,NA,Non-Physician,NA,What + Why,5.5,High,2.5,0.5,2.5,2,2,2,0.8,NA,FALSE
+Experiment 3,2,R_3ivPdamipgs6qYF,Other,NA,NA,Non-Physician,NA,What + Why,9,Low,1,1.5,3,0.5,0.5,-0.5,0.16666666666666666,NA,FALSE
+Experiment 3,1,R_xEnkCozTWT7rxKx,Other,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,NA,FALSE
+Experiment 3,2,R_xEnkCozTWT7rxKx,Other,NA,NA,Non-Physician,NA,What + Why + How,9,Low,0.1999999999999993,2,4.199999999999999,2.1999999999999993,2.1999999999999993,-1.8000000000000007,0.5238095238095237,NA,FALSE
+Experiment 3,1,R_5C6P8kz5KiX4MPn,Other,NA,NA,Non-Physician,NA,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_5C6P8kz5KiX4MPn,Other,NA,NA,Non-Physician,NA,What + Why,9,Low,1,4,3,3,3,-3,1,NA,FALSE
+Experiment 3,1,R_1JXdpUKKePP5rNA,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_1JXdpUKKePP5rNA,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,9,High,0,0,0,0,0,0,NA,NA,FALSE
+Experiment 3,1,R_O0W3uZc4ZSTlFiV,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,5.5,4,9.5,9.5,9.5,1.5,1,NA,FALSE
+Experiment 3,1,R_SOgiqMcoxdtRR3H,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_2659ohj7N4h2PsK,Other,NA,NA,Non-Physician,NA,What,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3kCcgcwWgPhfRMZ,Other,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,2,0,2,-2,2,2,1,NA,FALSE
+Experiment 3,1,R_sMO0ekU4gtlV3PP,Physician,NA,NA,Physician,NA,What + Why,5.5,High,3,2,3,1,1,1,0.3333333333333333,NA,FALSE
+Experiment 3,1,R_URtYKkiFW7aoOA1,Other,29,Female,Non-Physician,8,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_URtYKkiFW7aoOA1,Other,29,Female,Non-Physician,8,What + Why + How,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_pE0RskQjron41gd,Pharmacist,32,Male,Non-Physician,6,Global,5.5,Low,3,3,7,0,0,0,0,1,FALSE
+Experiment 3,2,R_pE0RskQjron41gd,Pharmacist,32,Male,Non-Physician,6,Global,9,High,0.5,0.5,0.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3Oxw5x68eqxgje1,Pharmacist,35,Female,Non-Physician,12,What,5.5,Low,0.5,0.5,3.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_3Oxw5x68eqxgje1,Pharmacist,35,Female,Non-Physician,12,What,9,High,1,0.5,1,-0.5,0.5,0.5,0.5,2,FALSE
+Experiment 3,1,R_0U1U7VkZ2FiyHN7,Physician,37,Female,Physician,5,What + Why,5.5,High,1,1,1,0,0,0,0,2,FALSE
+Experiment 3,2,R_0U1U7VkZ2FiyHN7,Physician,37,Female,Physician,5,What + Why,9,Low,1,1,3,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,1,R_3MMTbJxXUa8QGYt,Pharmacist,40,Male,Non-Physician,14,What + Why + How,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3,FALSE
+Experiment 3,2,R_3MMTbJxXUa8QGYt,Pharmacist,40,Male,Non-Physician,14,What + Why + How,9,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_3EzFQVXNTMRaFy3,Physician,48,Female,Physician,20,Global,9,High,0,0,0,0,0,0,NA,1,FALSE
+Experiment 3,1,R_22V2kphiUcU1cCO,Physician,35,Male,Physician,8,What + Why,5.5,High,1,0.5,1,-0.5,0.5,0.5,0.5,NA,FALSE
+Experiment 3,2,R_22V2kphiUcU1cCO,Physician,35,Male,Physician,8,What + Why,9,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_1l3sJNMKEpyTZhr,Pharmacist,45,Female,Non-Physician,4,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_1l3sJNMKEpyTZhr,Pharmacist,45,Female,Non-Physician,4,Global,9,High,3,3,3,0,0,0,0,3.6666666666666665,FALSE
+Experiment 3,1,R_1QFT4o2rCmWjKqg,Physician,43,Female,Physician,6,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_1QFT4o2rCmWjKqg,Physician,43,Female,Physician,6,What + Why,9,High,1,0,1,1,1,1,1,3,FALSE
+Experiment 3,1,R_3oNFG0HNbhgK1yG,Physician,44,Female,Physician,20,What + Why,5.5,High,2.5,1.5,2.5,1,1,1,0.4,3,FALSE
+Experiment 3,2,R_3oNFG0HNbhgK1yG,Physician,44,Female,Physician,20,What + Why,9,Low,1,1,3,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3CVkXsgltuM6mzu,Physician,45,Male,Physician,17,Global,5.5,High,0.5,0.5,0.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_3CVkXsgltuM6mzu,Physician,45,Male,Physician,17,Global,9,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_3IZiMNZtfySOMLE,Pharmacist,49,Male,Non-Physician,18,What,5.5,Low,0.5,0.5,3.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_3IZiMNZtfySOMLE,Pharmacist,49,Male,Non-Physician,18,What,9,High,1,1,1,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,1,R_3EmTTeYKLMtdO49,Physician,61,Male,Physician,35,What,5.5,Low,2,2,6,0,0,0,0,3,FALSE
+Experiment 3,2,R_3EmTTeYKLMtdO49,Physician,61,Male,Physician,35,What,9,High,1,0,1,-1,1,1,1,3.3333333333333335,FALSE
+Experiment 3,1,R_Op6PNwhdZaho4Uh,Other,65,Female,Non-Physician,40,Global,5.5,Low,0.5,1,3.5,0.5,0.5,-0.5,0.14285714285714285,2,FALSE
+Experiment 3,2,R_Op6PNwhdZaho4Uh,Other,65,Female,Non-Physician,40,Global,9,High,1.5,1,1.5,-0.5,0.5,0.5,0.3333333333333333,2,FALSE
+Experiment 3,1,R_3m4eNqlsE3EbvhA,Physician,40,Male,Physician,15,What,5.5,Low,0.5,1.5,4.5,-1,1,-1,0.2222222222222222,1,FALSE
+Experiment 3,2,R_3m4eNqlsE3EbvhA,Physician,40,Male,Physician,15,What,9,High,0,0,0,0,0,0,NA,2,FALSE
+Experiment 3,1,R_3mlz0OGeVDPlMev,Physician,30,Female,Physician,1,What + Why + How,5.5,High,3.5,0,3.5,3.5,3.5,3.5,1,3.3333333333333335,FALSE
+Experiment 3,2,R_3mlz0OGeVDPlMev,Physician,30,Female,Physician,1,What + Why + How,9,Low,0.5,0.5,3.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3rHZTiOKAtupb82,Physician,39,Female,Physician,11,Global,5.5,Low,2.5,2.5,6.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3rHZTiOKAtupb82,Physician,39,Female,Physician,11,Global,9,High,0,0,0,0,0,0,NA,3.3333333333333335,FALSE
+Experiment 3,1,R_3NEVLA2WZIuirfl,Other,51,Female,Non-Physician,27,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3NEVLA2WZIuirfl,Other,51,Female,Non-Physician,27,Global,9,High,1,0,1,-1,1,1,1,4.333333333333333,FALSE
+Experiment 3,1,R_24CrC2y9V7ZoJAh,Physician,34,Female,Physician,10,What + Why,5.5,Low,0.5,0.5,3.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_24CrC2y9V7ZoJAh,Physician,34,Female,Physician,10,What + Why,9,High,0,0,0,0,0,0,NA,3,FALSE
+Experiment 3,1,R_2dhIdwO2xIsUCWW,Physician,36,Female,Physician,10,Global,5.5,Low,4.5,4.5,8.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2dhIdwO2xIsUCWW,Physician,36,Female,Physician,10,Global,9,High,1,0,1,-1,1,1,1,3.6666666666666665,FALSE
+Experiment 3,1,R_1I6DZrV06ACPCvU,Physician,47,Male,Physician,20,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_1I6DZrV06ACPCvU,Physician,47,Male,Physician,20,What + Why + How,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,1,R_1ojShlHlD6zIN2e,Physician,48,Female,Physician,18,What + Why + How,5.5,Low,0.5,0.5,3.5,0,0,0,0,4,FALSE
+Experiment 3,2,R_1ojShlHlD6zIN2e,Physician,48,Female,Physician,18,What + Why + How,9,High,1,1,1,0,0,0,0,3.6666666666666665,FALSE
+Experiment 3,1,R_eA2TjBfHDYFZoA1,Other,72,Female,Non-Physician,50,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 3,2,R_eA2TjBfHDYFZoA1,Other,72,Female,Non-Physician,50,What + Why,9,Low,1,2.5,3,1.5,1.5,-1.5,0.5,3.3333333333333335,FALSE
+Experiment 3,1,R_3oLUlTVBpgRPtbh,Physician,40,Male,Physician,15,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3oLUlTVBpgRPtbh,Physician,40,Male,Physician,15,What + Why,9,High,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 3,1,R_2xLTaJ8JeaUTS4B,Physician,40,Male,Physician,11,What + Why,5.5,High,3,0,3,3,3,3,1,NA,FALSE
+Experiment 3,2,R_2xLTaJ8JeaUTS4B,Physician,40,Male,Physician,11,What + Why,9,Low,1,0,5,1,1,1,0.2,1.3333333333333333,FALSE
+Experiment 3,1,R_29sranQO7ngYL04,Physician,38,Male,Physician,12,What,5.5,High,3,1,3,2,2,2,0.6666666666666666,NA,FALSE
+Experiment 3,2,R_29sranQO7ngYL04,Physician,38,Male,Physician,12,What,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_DvjIs7vAH8uQx8d,Other,32,Female,Non-Physician,2,What + Why,5.5,Low,3,2.5,7,0.5,0.5,0.5,0.07142857142857142,1,FALSE
+Experiment 3,2,R_DvjIs7vAH8uQx8d,Other,32,Female,Non-Physician,2,What + Why,9,High,0,0,0,0,0,0,NA,3.3333333333333335,FALSE
+Experiment 3,1,R_3KGDyOfCY5IpAnJ,Other,32,Female,Non-Physician,11,What + Why + How,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,4,FALSE
+Experiment 3,2,R_3KGDyOfCY5IpAnJ,Other,32,Female,Non-Physician,11,What + Why + How,9,Low,1.5,4,2.5,2.5,2.5,-2.5,1,4,FALSE
+Experiment 3,1,R_248WhuDin3knyM2,Other,32,Female,Non-Physician,5,Global,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,2,FALSE
+Experiment 3,2,R_248WhuDin3knyM2,Other,32,Female,Non-Physician,5,Global,9,Low,1.5,1.5,2.5,0,0,0,0,1,FALSE
+Experiment 3,1,R_1PTvOfU2fA69Sfn,Physician,56,Female,Physician,19,What + Why,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3.3333333333333335,FALSE
+Experiment 3,2,R_1PTvOfU2fA69Sfn,Physician,56,Female,Physician,19,What + Why,9,Low,1,1,3,0,0,0,0,2,FALSE
+Experiment 3,1,R_2foAKNcNkscjTHM,Other,30,Female,Non-Physician,2,What + Why + How,5.5,Low,0.5,0.5,3.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_2foAKNcNkscjTHM,Other,30,Female,Non-Physician,2,What + Why + How,9,High,1,0.5,1,0.5,0.5,0.5,0.5,3,FALSE
+Experiment 3,1,R_2dGCb8ckLjq7XW8,Physician,39,Female,Physician,10,What + Why,5.5,Low,1.5,1.5,5.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2dGCb8ckLjq7XW8,Physician,39,Female,Physician,10,What + Why,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,3,FALSE
+Experiment 3,1,R_3fIVbs8ufoGY1dm,Physician,28,Female,Physician,3,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3fIVbs8ufoGY1dm,Physician,28,Female,Physician,3,What + Why + How,9,High,0,0,0,0,0,0,NA,3.6666666666666665,FALSE
+Experiment 3,1,R_3PtbAjaB9mfK0cu,Physician,40,Male,Physician,15,What + Why,5.5,High,1.5,0,1.5,1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,2,R_3PtbAjaB9mfK0cu,Physician,40,Male,Physician,15,What + Why,9,Low,1,4,3,3,3,-3,1,4,FALSE
+Experiment 3,2,R_22rcjkQT74yHk1B,Pharmacist,29,Female,Non-Physician,2.5,What,9,Low,4,4,8,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_RQPhZyPnvrewTRf,Pharmacist,38,Male,Non-Physician,10,What + Why,5.5,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,2,R_RQPhZyPnvrewTRf,Pharmacist,38,Male,Non-Physician,10,What + Why,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 3,1,R_24oeI8xKHxx79nK,Physician,52,Female,Physician,26,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_24oeI8xKHxx79nK,Physician,52,Female,Physician,26,What + Why,9,High,1,1,1,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,1,R_2ARJ6GTcFV41L6D,Pharmacist,37,Male,Non-Physician,13,What + Why + How,5.5,High,5.5,1,5.5,4.5,4.5,4.5,0.8181818181818182,3.3333333333333335,FALSE
+Experiment 3,2,R_2ARJ6GTcFV41L6D,Pharmacist,37,Male,Non-Physician,13,What + Why + How,9,Low,0,0,4,0,0,0,0,3,FALSE
+Experiment 3,2,R_DoEi91IDf6Ioq2t,Physician,30,Male,Physician,3,What + Why + How,9,Low,0,0,4,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,1,R_1DCOFGkNH1YDYry,Physician,43,Male,Physician,13,What + Why + How,5.5,High,2.5,2,2.5,0.5,0.5,0.5,0.2,2,FALSE
+Experiment 3,2,R_1DCOFGkNH1YDYry,Physician,43,Male,Physician,13,What + Why + How,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_z7neAX44lqOqcNz,Pharmacist,34,Female,Non-Physician,7,What + Why + How,5.5,Low,1.5,1.5,5.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_z7neAX44lqOqcNz,Pharmacist,34,Female,Non-Physician,7,What + Why + How,9,High,1,0,1,-1,1,1,1,3.3333333333333335,FALSE
+Experiment 3,1,R_QmIFyUszitkJ4hr,Pharmacist,27,Male,Non-Physician,2,What + Why + How,5.5,Low,0.5,2,3.5,1.5,1.5,-1.5,0.42857142857142855,1.6666666666666667,FALSE
+Experiment 3,2,R_QmIFyUszitkJ4hr,Pharmacist,27,Male,Non-Physician,2,What + Why + How,9,High,0.5,0.5,0.5,0,0,0,0,2,FALSE
+Experiment 3,1,R_3OjYPZpVvvkAIjL,Physician,30,Male,Physician,5,Global,5.5,Low,2.5,2.5,6.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_3OjYPZpVvvkAIjL,Physician,30,Male,Physician,5,Global,9,High,5,0,5,5,5,5,1,2.6666666666666665,FALSE
+Experiment 3,1,R_1cS3bo2E7eKTGkf,Physician,32,Male,Physician,7,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_1cS3bo2E7eKTGkf,Physician,32,Male,Physician,7,What + Why,9,High,2,0,2,2,2,2,1,4,FALSE
+Experiment 3,1,R_suP4d3LSONgd2iB,Physician,39,Male,Physician,11,What,5.5,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,2,R_suP4d3LSONgd2iB,Physician,39,Male,Physician,11,What,9,High,1,0,1,-1,1,1,1,4,FALSE
+Experiment 3,1,R_Av8YsygiOhm1zdn,Physician,45,Male,Physician,22,Global,5.5,High,2.5,0.5,2.5,2,2,2,0.8,NA,FALSE
+Experiment 3,2,R_Av8YsygiOhm1zdn,Physician,45,Male,Physician,22,Global,9,Low,0,4,4,4,4,-4,1,3.3333333333333335,FALSE
+Experiment 3,1,R_300p3YrIPuoH9DX,Pharmacist,34,Female,Non-Physician,10,What,5.5,High,1.5,0.5,1.5,1,1,1,0.6666666666666666,NA,FALSE
+Experiment 3,2,R_300p3YrIPuoH9DX,Pharmacist,34,Female,Non-Physician,10,What,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_PzVXLOKfE0adkad,Pharmacist,35,Female,Non-Physician,10,What,5.5,Low,0.5,0.5,3.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_PzVXLOKfE0adkad,Pharmacist,35,Female,Non-Physician,10,What,9,High,1,0,1,-1,1,1,1,3,FALSE
+Experiment 3,1,R_2eRbBdMpSBhtFVo,Physician,37,Female,Physician,5,What + Why,5.5,High,2.5,1,2.5,1.5,1.5,1.5,0.6,NA,FALSE
+Experiment 3,2,R_2eRbBdMpSBhtFVo,Physician,37,Female,Physician,5,What + Why,9,Low,0,2,4,2,2,-2,0.5,3,FALSE
+Experiment 3,1,R_1ilh1dvxrAQPWjV,Physician,44,Male,Physician,19,What + Why + How,5.5,Low,2.5,2.5,6.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_1ilh1dvxrAQPWjV,Physician,44,Male,Physician,19,What + Why + How,9,High,0,0,0,0,0,0,NA,4.333333333333333,FALSE
+Experiment 3,1,R_24r8mO6Ma7DoWBT,Physician,34,Male,Physician,10,What + Why,5.5,High,1.5,1,1.5,0.5,0.5,0.5,0.3333333333333333,NA,FALSE
+Experiment 3,2,R_24r8mO6Ma7DoWBT,Physician,34,Male,Physician,10,What + Why,9,Low,1,3,3,2,2,-2,0.6666666666666666,2,FALSE
+Experiment 3,1,R_2dgqty9e7cgSRGn,Physician,50,Male,Physician,21,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_2dgqty9e7cgSRGn,Physician,50,Male,Physician,21,What + Why + How,9,Low,1,1,3,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_3G1ELGNjpsC8N4E,Pharmacist,36,Male,Non-Physician,12,What,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_1odrdeUqftwocuB,Physician,68,Male,Physician,36,Global,5.5,Low,3,3,7,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_1odrdeUqftwocuB,Physician,68,Male,Physician,36,Global,9,High,1,0,1,1,1,1,1,4,FALSE
+Experiment 3,1,R_2WMuI60Tkzd1DIo,Physician,62,Male,Physician,32,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 3,2,R_2WMuI60Tkzd1DIo,Physician,62,Male,Physician,32,What + Why + How,9,Low,1.5,1,5.5,2.5,2.5,0.5,0.45454545454545453,3,FALSE
+Experiment 3,1,R_1dy7rvDqshPocER,Other,55,Female,Non-Physician,30,What + Why + How,5.5,High,1,1,1,0,0,0,0,3,FALSE
+Experiment 3,2,R_1dy7rvDqshPocER,Other,55,Female,Non-Physician,30,What + Why + How,9,Low,1,2,3,1,1,-1,0.3333333333333333,3,FALSE
+Experiment 3,1,R_12QJBAVoRAtzilY,Pharmacist,30,Male,Non-Physician,4,What + Why + How,5.5,High,2,1,2,1,1,1,0.5,3.6666666666666665,FALSE
+Experiment 3,2,R_12QJBAVoRAtzilY,Pharmacist,30,Male,Non-Physician,4,What + Why + How,9,Low,0.5,1,4.5,1.5,1.5,-0.5,0.3333333333333333,2,FALSE
+Experiment 3,1,R_2TnOekmm5u5zM2T,Pharmacist,44,Female,Non-Physician,20,Global,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,4.333333333333333,FALSE
+Experiment 3,2,R_2TnOekmm5u5zM2T,Pharmacist,44,Female,Non-Physician,20,Global,9,Low,1.5,1.5,2.5,0,0,0,0,1,FALSE
+Experiment 3,1,R_0HQm0mH3381WxmF,Other,68,Female,Non-Physician,47,What + Why + How,5.5,Low,1.5,1.5,5.5,0,0,0,0,4,FALSE
+Experiment 3,2,R_0HQm0mH3381WxmF,Other,68,Female,Non-Physician,47,What + Why + How,9,High,6,6,6,0,0,0,0,4,TRUE
+Experiment 3,1,R_2ypkNfROLUrLB5v,Pharmacist,34,Non binary / transgender / third gender,Non-Physician,10,What,5.5,Low,2.5,2.5,6.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2ypkNfROLUrLB5v,Pharmacist,34,Non binary / transgender / third gender,Non-Physician,10,What,9,High,2,1,2,-1,1,1,0.5,2.3333333333333335,FALSE
+Experiment 3,1,R_3NwwzUOmELyZGhC,Pharmacist,37,Male,Non-Physician,12,What,5.5,High,2.5,1.5,2.5,1,1,1,0.4,2,FALSE
+Experiment 3,2,R_3NwwzUOmELyZGhC,Pharmacist,37,Male,Non-Physician,12,What,9,Low,1,3,3,2,2,-2,0.6666666666666666,1.6666666666666667,FALSE
+Experiment 3,1,R_12lu6WbvfFe2eM8,Physician,29,Female,Physician,3.5,What + Why,5.5,High,2.5,0.5,2.5,2,2,2,0.8,4,FALSE
+Experiment 3,2,R_12lu6WbvfFe2eM8,Physician,29,Female,Physician,3.5,What + Why,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_2alEI7TmrHOk1lg,Pharmacist,32,Female,Non-Physician,7,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2alEI7TmrHOk1lg,Pharmacist,32,Female,Non-Physician,7,What + Why,9,High,0,0,0,0,0,0,NA,3,FALSE
+Experiment 3,1,R_32L4D88g6tdlejv,Physician,40,Male,Physician,17,What,5.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 3,2,R_32L4D88g6tdlejv,Physician,40,Male,Physician,17,What,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_u9rxkzKirs1uvDP,Physician,30,Female,Physician,6,What,5.5,Low,1.75,4,2.25,2.25,2.25,-2.25,1,3,FALSE
+Experiment 3,2,R_u9rxkzKirs1uvDP,Physician,30,Female,Physician,6,What,9,High,5.2,0,5.2,5.2,5.2,5.2,1,2.6666666666666665,FALSE
+Experiment 3,1,R_27jLofhEMFVPDwo,Other,26,Female,Non-Physician,1,What,5.5,High,0.5,0.5,0.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_27jLofhEMFVPDwo,Other,26,Female,Non-Physician,1,What,9,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,1,R_2e9EJ9jh232IWiI,Physician,31,Male,Physician,3,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2e9EJ9jh232IWiI,Physician,31,Male,Physician,3,What + Why,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,2.6666666666666665,FALSE
+Experiment 3,1,R_Z4ZtPsZlDxgU5NL,Pharmacist,46,Male,Non-Physician,22,What + Why + How,5.5,Low,3.5,3.5,7.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_Z4ZtPsZlDxgU5NL,Pharmacist,46,Male,Non-Physician,22,What + Why + How,9,High,1,0,1,1,1,1,1,3,FALSE
+Experiment 3,1,R_3L1P3hJtSPpeqvm,Other,39,Female,Non-Physician,16,What + Why,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.6666666666666665,FALSE
+Experiment 3,2,R_3L1P3hJtSPpeqvm,Other,39,Female,Non-Physician,16,What + Why,9,Low,1,1,3,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_2Y4CQeEbEsmkMVe,Physician,29,Male,Physician,3,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2Y4CQeEbEsmkMVe,Physician,29,Male,Physician,3,What + Why + How,9,High,0,0,0,0,0,0,NA,1.3333333333333333,FALSE
+Experiment 3,1,R_1IiqEO2YsZV3jH8,Pharmacist,46,Male,Non-Physician,20,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,2,R_1IiqEO2YsZV3jH8,Pharmacist,46,Male,Non-Physician,20,What + Why + How,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_2QuocS4yJdxEHkC,Physician,34,Male,Physician,6,What,5.5,High,2,1.5,2,0.5,0.5,0.5,0.25,2,FALSE
+Experiment 3,2,R_2QuocS4yJdxEHkC,Physician,34,Male,Physician,6,What,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_3dJNRnMZlFP8vt0,Physician,58,Female,Physician,30,What + Why,5.5,Low,2.5,2.5,6.5,0,0,0,0,2,FALSE
+Experiment 3,2,R_3dJNRnMZlFP8vt0,Physician,58,Female,Physician,30,What + Why,9,High,0,0,0,0,0,0,NA,2,FALSE
+Experiment 3,1,R_3Hpqtx6KeJA4ges,Physician,28,Female,Physician,3,Global,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,4,FALSE
+Experiment 3,2,R_3Hpqtx6KeJA4ges,Physician,28,Female,Physician,3,Global,9,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,2,R_YWhHzRTfieiB1hD,Physician,43,Male,Physician,18,Global,9,Low,0.5,0.5,3.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_3fUzNg1SfteFKzf,Other,44,Female,Non-Physician,23,Global,5.5,Low,0.5,0.5,3.5,0,0,0,0,3,FALSE
+Experiment 3,2,R_3fUzNg1SfteFKzf,Other,44,Female,Non-Physician,23,Global,9,High,0,0,0,0,0,0,NA,1.3333333333333333,FALSE
+Experiment 3,1,R_1dv7DoCSMl1xc5H,Physician,67,Male,Physician,37,What,5.5,Low,1.5,1.5,5.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_1dv7DoCSMl1xc5H,Physician,67,Male,Physician,37,What,9,High,0,0,0,0,0,0,NA,2.3333333333333335,FALSE
+Experiment 3,1,R_8bL14UtX7iO1Tvb,Pharmacist,27,Female,Non-Physician,1,Global,5.5,High,3,3,3,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_8bL14UtX7iO1Tvb,Pharmacist,27,Female,Non-Physician,1,Global,9,Low,3,3,7,0,0,0,0,2,FALSE
+Experiment 3,1,R_3ivWZIJVHHPSxcJ,Physician,47,Female,Physician,16,Global,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_3ivWZIJVHHPSxcJ,Physician,47,Female,Physician,16,Global,9,Low,1,0,5,1,1,1,0.2,1,FALSE
+Experiment 3,2,R_Y5mWYSBAsgpFdgB,Pharmacist,43,Female,Non-Physician,22,Global,9,Low,2,2,6,0,0,0,0,1,FALSE
+Experiment 3,1,R_123JzxP3Gkfdtwg,Physician,50,Female,Physician,20,What,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_123JzxP3Gkfdtwg,Physician,50,Female,Physician,20,What,9,Low,1,2,3,1,1,-1,0.3333333333333333,1.6666666666666667,FALSE
+Experiment 3,1,R_3kEXNk7yWiG6etb,Physician,29,Female,Physician,4,What,5.5,High,3,2.5,3,0.5,0.5,0.5,0.16666666666666666,2,FALSE
+Experiment 3,2,R_3kEXNk7yWiG6etb,Physician,29,Female,Physician,4,What,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_x4w6O2h3NFo14ul,Other,55,Female,Non-Physician,32,What + Why + How,5.5,High,3,2.5,3,0.5,0.5,0.5,0.16666666666666666,3,FALSE
+Experiment 3,2,R_x4w6O2h3NFo14ul,Other,55,Female,Non-Physician,32,What + Why + How,9,Low,4,3,8,1,1,1,0.125,3,FALSE
+Experiment 3,1,R_1CkYx3nxchJ4RCI,Physician,49,Female,Physician,24,Global,5.5,High,2.5,0,2.5,2.5,2.5,2.5,1,2,FALSE
+Experiment 3,2,R_1CkYx3nxchJ4RCI,Physician,49,Female,Physician,24,Global,9,Low,1,2,3,1,1,-1,0.3333333333333333,2,FALSE
+Experiment 3,1,R_32WwkkEzr1DkMZo,Physician,51,Male,Physician,26,What + Why,5.5,High,2,0.5,2,1.5,1.5,1.5,0.75,3,FALSE
+Experiment 3,2,R_32WwkkEzr1DkMZo,Physician,51,Male,Physician,26,What + Why,9,Low,1,0,5,1,1,1,0.2,2,FALSE
+Experiment 3,1,R_2dFtCi49p66jiu0,Physician,28,Female,Physician,3,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,4.333333333333333,FALSE
+Experiment 3,2,R_2dFtCi49p66jiu0,Physician,28,Female,Physician,3,What + Why + How,9,Low,0,0,4,0,0,0,0,1,FALSE
+Experiment 3,1,R_3MtBgANJh25ysfD,Physician,27,Female,Physician,2,What + Why,5.5,High,2.5,0.5,2.5,2,2,2,0.8,2.6666666666666665,FALSE
+Experiment 3,2,R_3MtBgANJh25ysfD,Physician,27,Female,Physician,2,What + Why,9,Low,0.5,2,3.5,1.5,1.5,-1.5,0.42857142857142855,3,FALSE
+Experiment 3,2,R_1OkJOtr53U68QoP,Pharmacist,53,Male,Non-Physician,32,What,9,Low,0.5,0.5,3.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_RWhL2JhEabFlLMt,Physician,36,Female,Physician,10,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,2,FALSE
+Experiment 3,2,R_RWhL2JhEabFlLMt,Physician,36,Female,Physician,10,What + Why,9,High,1,1,1,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,1,R_1OE1N2ogLUZreaG,Pharmacist,42,Female,Non-Physician,17,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,2,FALSE
+Experiment 3,2,R_1OE1N2ogLUZreaG,Pharmacist,42,Female,Non-Physician,17,What + Why,9,Low,1,1,3,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3fZWa7zuAL6Bxho,Pharmacist,35,Male,Non-Physician,10,What + Why,5.5,Low,0.5,0.5,3.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3fZWa7zuAL6Bxho,Pharmacist,35,Male,Non-Physician,10,What + Why,9,High,1,0,1,-1,1,1,1,4,FALSE
+Experiment 3,1,R_3ISQUIZgExClDty,Physician,28,Female,Physician,2.5,What,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_3ISQUIZgExClDty,Physician,28,Female,Physician,2.5,What,9,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_D5DiPxr5K9miFtD,Physician,39,Female,Physician,14,Global,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 3,2,R_D5DiPxr5K9miFtD,Physician,39,Female,Physician,14,Global,9,Low,1,1,3,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,1,R_2w1zl5OV9ZKn5GD,Physician,46,Female,Physician,7,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2w1zl5OV9ZKn5GD,Physician,46,Female,Physician,7,Global,9,High,1,1,1,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,1,R_33pDoFDZyJTQx37,Physician,29,Female,Physician,3,What + Why,5.5,Low,3,3,7,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,2,R_33pDoFDZyJTQx37,Physician,29,Female,Physician,3,What + Why,9,High,0,0,0,0,0,0,NA,3.3333333333333335,FALSE
+Experiment 3,1,R_25XSAlrb0ITXIbE,Pharmacist,42,Female,Non-Physician,15,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_25XSAlrb0ITXIbE,Pharmacist,42,Female,Non-Physician,15,What + Why + How,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 3,1,R_3Rre7sSkRGHm1m4,Pharmacist,34,Male,Non-Physician,9,What + Why + How,5.5,Low,3,3,7,0,0,0,0,1,FALSE
+Experiment 3,2,R_3Rre7sSkRGHm1m4,Pharmacist,34,Male,Non-Physician,9,What + Why + How,9,High,0.5,0.5,0.5,0,0,0,0,3.6666666666666665,FALSE
+Experiment 3,1,R_3R7QfLmL7Gdvvi7,Physician,54,Male,Physician,29,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3R7QfLmL7Gdvvi7,Physician,54,Male,Physician,29,Global,9,High,1,0,1,1,1,1,1,4,FALSE
+Experiment 3,1,R_32KhiVGMMHE7FQE,Physician,61,Male,Physician,35,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3,FALSE
+Experiment 3,2,R_32KhiVGMMHE7FQE,Physician,61,Male,Physician,35,What + Why + How,9,Low,0.5,0.5,3.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_1rJ84a2TCKBC5L2,Physician,55,Female,Physician,29,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_1rJ84a2TCKBC5L2,Physician,55,Female,Physician,29,Global,9,High,1,0.5,1,-0.5,0.5,0.5,0.5,2.6666666666666665,FALSE
+Experiment 3,1,R_2dijEOqZjM1BW96,Physician,47,Male,Physician,13,What,5.5,High,0.5,0.5,0.5,0,0,0,0,2,FALSE
+Experiment 3,2,R_2dijEOqZjM1BW96,Physician,47,Male,Physician,13,What,9,Low,1,1,5,0,0,0,0,3,FALSE
+Experiment 3,1,R_11c1u4vPNhYpdGq,Physician,38,Female,Physician,8,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,2,FALSE
+Experiment 3,2,R_11c1u4vPNhYpdGq,Physician,38,Female,Physician,8,What + Why + How,9,High,1,0,1,-1,1,1,1,3,FALSE
+Experiment 3,1,R_1Dxa1YRmWBr8kg6,Pharmacist,34,Female,Non-Physician,9,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,4,FALSE
+Experiment 3,2,R_1Dxa1YRmWBr8kg6,Pharmacist,34,Female,Non-Physician,9,What + Why + How,9,Low,0.5,1,3.5,0.5,0.5,-0.5,0.14285714285714285,1.6666666666666667,FALSE
+Experiment 3,1,R_qDxI4AFuvt78DaF,Other,31,Female,Non-Physician,4,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_qDxI4AFuvt78DaF,Other,31,Female,Non-Physician,4,What + Why + How,9,High,2,0,2,-2,2,2,1,3,FALSE
+Experiment 3,1,R_2tqTpVUs7C3eVSw,Physician,45,Male,Physician,18,What + Why + How,5.5,Low,2,2,6,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_2tqTpVUs7C3eVSw,Physician,45,Male,Physician,18,What + Why + How,9,High,3.5,0,3.5,3.5,3.5,3.5,1,2.6666666666666665,FALSE
+Experiment 3,1,R_31hF8q4JQKnweks,Physician,68,Male,Physician,42,What,5.5,High,3,1.5,3,1.5,1.5,1.5,0.5,2,FALSE
+Experiment 3,2,R_31hF8q4JQKnweks,Physician,68,Male,Physician,42,What,9,Low,1,2,5,3,3,-1,0.6,2,FALSE
+Experiment 3,1,R_Xw63e7O9bLBXNkd,Physician,39,Male,Physician,1.5,What,5.5,High,3,2,3,1,1,1,0.3333333333333333,4,FALSE
+Experiment 3,2,R_Xw63e7O9bLBXNkd,Physician,39,Male,Physician,1.5,What,9,Low,1,1,3,0,0,0,0,2,FALSE
+Experiment 3,1,R_2afSWoueT0vjYA0,Pharmacist,40,Female,Non-Physician,10,Global,5.5,High,2.5,0,2.5,2.5,2.5,2.5,1,2.6666666666666665,FALSE
+Experiment 3,2,R_2afSWoueT0vjYA0,Pharmacist,40,Female,Non-Physician,10,Global,9,Low,3,3,7,0,0,0,0,3,FALSE
+Experiment 3,2,R_3QXAyjGp1QDH1hk,Other,39,Male,Non-Physician,15,What,9,High,1,0,1,-1,1,1,1,3.3333333333333335,FALSE
+Experiment 3,1,R_3gRXkFX5Ed6aLGG,Physician,50,Female,Physician,23,What + Why + How,5.5,High,1,1,1,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_3gRXkFX5Ed6aLGG,Physician,50,Female,Physician,23,What + Why + How,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_RbrF31YO4dLupbj,Physician,37,Female,Physician,11,What,5.5,High,2.5,1.5,2.5,1,1,1,0.4,2.3333333333333335,FALSE
+Experiment 3,2,R_RbrF31YO4dLupbj,Physician,37,Female,Physician,11,What,9,Low,4,4,8,0,0,0,0,2,FALSE
+Experiment 3,1,R_1jI0ieuc1lufnBQ,Pharmacist,44,Female,Non-Physician,15,What + Why,5.5,Low,3,3,7,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_1jI0ieuc1lufnBQ,Pharmacist,44,Female,Non-Physician,15,What + Why,9,High,1,0,1,-1,1,1,1,3.3333333333333335,FALSE
+Experiment 3,1,R_9uF6nuSL9O0I19L,Physician,33,Female,Physician,7,What,5.5,Low,5.5,0,9.5,5.5,5.5,5.5,0.5789473684210527,1,FALSE
+Experiment 3,2,R_9uF6nuSL9O0I19L,Physician,33,Female,Physician,7,What,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,4,FALSE
+Experiment 3,1,R_ZKoQdpT5bYESJWN,Other,44,Female,Non-Physician,7,What,5.5,Low,1.25,1,2.75,-0.25,0.25,0.25,0.09090909090909091,1.3333333333333333,FALSE
+Experiment 3,2,R_ZKoQdpT5bYESJWN,Other,44,Female,Non-Physician,7,What,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,1.6666666666666667,FALSE
+Experiment 3,1,R_Q6cTYusf63JvnzP,Other,42,Female,Non-Physician,8,What,5.5,Low,0.5,3.5,4.5,4,4,-3,0.8888888888888888,4,FALSE
+Experiment 3,2,R_Q6cTYusf63JvnzP,Other,42,Female,Non-Physician,8,What,9,High,3,1,3,-2,2,2,0.6666666666666666,4,FALSE
+Experiment 3,1,R_VWIEer52rk3eGfT,Pharmacist,33,Female,Non-Physician,10,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,3,FALSE
+Experiment 3,2,R_VWIEer52rk3eGfT,Pharmacist,33,Female,Non-Physician,10,What + Why,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_3jUJPRGGwraz3e6,Physician,52,Male,Physician,23,What + Why + How,5.5,Low,0.5,0.5,3.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3jUJPRGGwraz3e6,Physician,52,Male,Physician,23,What + Why + How,9,High,0,0,0,0,0,0,NA,2.6666666666666665,FALSE
+Experiment 3,1,R_3m9xQMYvBDjGgqp,Physician,33,Female,Physician,1,Global,5.5,High,2.5,0,2.5,2.5,2.5,2.5,1,4,FALSE
+Experiment 3,2,R_3m9xQMYvBDjGgqp,Physician,33,Female,Physician,1,Global,9,Low,1,2,3,1,1,-1,0.3333333333333333,3,FALSE
+Experiment 3,1,R_2X5uwPWyel2WHHT,Physician,46,Male,Physician,15,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,4,FALSE
+Experiment 3,2,R_2X5uwPWyel2WHHT,Physician,46,Male,Physician,15,What + Why,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,1,R_1JX93DB45D2fMoE,Physician,26,Female,Physician,1,What,5.5,High,2.5,0,2.5,2.5,2.5,2.5,1,3,FALSE
+Experiment 3,2,R_1JX93DB45D2fMoE,Physician,26,Female,Physician,1,What,9,Low,0,4,4,4,4,-4,1,4,FALSE
+Experiment 3,1,R_1LGqe2fAqeTccCV,Pharmacist,24,Female,Non-Physician,1,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_1LGqe2fAqeTccCV,Pharmacist,24,Female,Non-Physician,1,Global,9,High,1,1,1,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_2Xjm1mMuJtOhDes,Pharmacist,38,Male,Non-Physician,12,What,5.5,Low,0.5,0.5,3.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_2Xjm1mMuJtOhDes,Pharmacist,38,Male,Non-Physician,12,What,9,High,1,1,1,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3KGtYj35anuUF0C,Physician,39,Female,Physician,15,Global,5.5,Low,3,3,7,0,0,0,0,1,FALSE
+Experiment 3,2,R_3KGtYj35anuUF0C,Physician,39,Female,Physician,15,Global,9,High,0.5,0,0.5,-0.5,0.5,0.5,1,3,FALSE
+Experiment 3,1,R_2awP7zwxHSJvmx1,Physician,32,Male,Physician,1.5,Global,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,2.3333333333333335,FALSE
+Experiment 3,2,R_2awP7zwxHSJvmx1,Physician,32,Male,Physician,1.5,Global,9,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,2,R_1LjwPxNvouz3JA0,Pharmacist,47,Male,Non-Physician,20,What + Why + How,9,High,1,1,1,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,1,R_2dMhEHbDbDURbTq,Physician,51,Female,Physician,22,Global,5.5,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_2dMhEHbDbDURbTq,Physician,51,Female,Physician,22,Global,9,High,1.5,1,1.5,-0.5,0.5,0.5,0.3333333333333333,2.3333333333333335,FALSE
+Experiment 3,1,R_9LEZlNPMk1LLOdX,Physician,29,Female,Physician,1,What + Why,5.5,High,3,0,3,3,3,3,1,2.6666666666666665,FALSE
+Experiment 3,2,R_9LEZlNPMk1LLOdX,Physician,29,Female,Physician,1,What + Why,9,Low,1.5,4,5.5,5.5,5.5,-2.5,1,2.6666666666666665,FALSE
+Experiment 3,1,R_1dBsQpe2HABcmgu,Other,33,Female,Non-Physician,2.5,What + Why + How,5.5,High,0,0,0,0,0,0,NA,3,FALSE
+Experiment 3,2,R_1dBsQpe2HABcmgu,Other,33,Female,Non-Physician,2.5,What + Why + How,9,Low,0,2,4,2,2,-2,0.5,2.6666666666666665,FALSE
+Experiment 3,1,R_1Fs7zDmYytWmjWI,Physician,45,Male,Physician,12,Global,5.5,Low,4.5,0.5,8.5,4,4,4,0.47058823529411764,2.3333333333333335,FALSE
+Experiment 3,2,R_1Fs7zDmYytWmjWI,Physician,45,Male,Physician,12,Global,9,High,6,0,6,-6,6,6,1,2,TRUE
+Experiment 3,1,R_24i28wgmW9EUvKV,Other,54,Female,Non-Physician,20,What + Why + How,5.5,High,1,0,1,-1,1,1,1,3.6666666666666665,FALSE
+Experiment 3,2,R_24i28wgmW9EUvKV,Other,54,Female,Non-Physician,20,What + Why + How,9,Low,1,4,3,3,3,-3,1,3,FALSE
+Experiment 3,2,R_1JW8oE6iM21n6NB,Pharmacist,28,Female,Non-Physician,1,What,9,High,4,4,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_2xKvcV0EyesUq4Y,Pharmacist,41,Female,Non-Physician,12,What + Why + How,5.5,Low,3,2.5,7,0.5,0.5,0.5,0.07142857142857142,1.6666666666666667,FALSE
+Experiment 3,2,R_2xKvcV0EyesUq4Y,Pharmacist,41,Female,Non-Physician,12,What + Why + How,9,High,1,0,1,1,1,1,1,3,FALSE
+Experiment 3,1,R_24bHE3U4ch5MZA0,Pharmacist,27,Female,Non-Physician,0.5,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,2,R_24bHE3U4ch5MZA0,Pharmacist,27,Female,Non-Physician,0.5,What + Why,9,High,1,0,1,-1,1,1,1,3,FALSE
+Experiment 3,1,R_3nkCayYnVE4xToQ,Physician,48,Male,Physician,20,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3nkCayYnVE4xToQ,Physician,48,Male,Physician,20,What + Why + How,9,High,1,1,1,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_3psFeSSOM2LALR1,Pharmacist,32,Male,Non-Physician,8,Global,5.5,Low,1.5,1.5,5.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_3psFeSSOM2LALR1,Pharmacist,32,Male,Non-Physician,8,Global,9,High,0,0,0,0,0,0,NA,4,FALSE
+Experiment 3,1,R_1MS8dTPddp88Wkf,Pharmacist,28,Female,Non-Physician,3,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_1MS8dTPddp88Wkf,Pharmacist,28,Female,Non-Physician,3,What + Why,9,Low,1,1,3,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_UiGwNWd4mT6pKeJ,Physician,44,Female,Physician,17,What + Why,5.5,Low,2.5,2.5,6.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_UiGwNWd4mT6pKeJ,Physician,44,Female,Physician,17,What + Why,9,High,1,0,1,-1,1,1,1,1.6666666666666667,FALSE
+Experiment 3,1,R_3NL3fUhRtfgDExv,Pharmacist,35,Female,Non-Physician,12,What,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3.3333333333333335,FALSE
+Experiment 3,2,R_3NL3fUhRtfgDExv,Pharmacist,35,Female,Non-Physician,12,What,9,Low,1,1,3,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,1,R_1qUQegXNv4GlgxZ,Physician,54,Male,Physician,28,Global,5.5,High,0.5,0.5,0.5,0,0,0,0,3.3333333333333335,FALSE
+Experiment 3,2,R_1qUQegXNv4GlgxZ,Physician,54,Male,Physician,28,Global,9,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,1,R_3MaOzTtpdfYUjFG,Pharmacist,50,Male,Non-Physician,29,What,5.5,High,3,3,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_3MaOzTtpdfYUjFG,Pharmacist,50,Male,Non-Physician,29,What,9,Low,0,0,4,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,1,R_55XdiwNeIvuxitX,Physician,60,Male,Physician,34,What + Why + How,5.5,High,4.5,0.5,4.5,-5,5,4,1.1111111111111112,4,TRUE
+Experiment 3,2,R_55XdiwNeIvuxitX,Physician,60,Male,Physician,34,What + Why + How,9,Low,4,4,8,8,8,0,1,4.333333333333333,FALSE
+Experiment 3,1,R_129F4kGptRa6dir,Pharmacist,40,Female,Non-Physician,17,Global,5.5,Low,1,1,3,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_129F4kGptRa6dir,Pharmacist,40,Female,Non-Physician,17,Global,9,High,1,1,1,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,1,R_C4y8xrVSjUoSXkJ,Other,71,Female,Non-Physician,35,What + Why + How,5.5,Low,0.5,4,4.5,4.5,4.5,-3.5,1,2,FALSE
+Experiment 3,2,R_C4y8xrVSjUoSXkJ,Other,71,Female,Non-Physician,35,What + Why + How,9,High,2,1,2,-1,1,1,0.5,2,FALSE
+Experiment 3,1,R_0IiMYAPx0isYGMp,Pharmacist,29,Female,Non-Physician,2,What,5.5,Low,1,0.5,3,-0.5,0.5,0.5,0.16666666666666666,1,FALSE
+Experiment 3,2,R_0IiMYAPx0isYGMp,Pharmacist,29,Female,Non-Physician,2,What,9,High,1.5,1.5,1.5,0,0,0,0,2,FALSE
+Experiment 3,1,R_1H66LAKjXGJBSmt,Physician,32,Female,Physician,6,What,5.5,High,2,1,2,1,1,1,0.5,1,FALSE
+Experiment 3,2,R_1H66LAKjXGJBSmt,Physician,32,Female,Physician,6,What,9,Low,1,1,5,0,0,0,0,2,FALSE
+Experiment 3,1,R_3MM2jp4ybHwe1al,Physician,69,Male,Physician,39,What,5.5,Low,3,3,7,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_3MM2jp4ybHwe1al,Physician,69,Male,Physician,39,What,9,High,1,0,1,-1,1,1,1,2.3333333333333335,FALSE
+Experiment 3,1,R_3qIMrmvtyP7pGbl,Physician,62,Male,Physician,34,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.3333333333333333,FALSE
+Experiment 3,2,R_3qIMrmvtyP7pGbl,Physician,62,Male,Physician,34,Global,9,High,1,0,1,-1,1,1,1,3,FALSE
+Experiment 3,1,R_1IaqtjbHdQ0znG7,Other,47,Female,Non-Physician,4,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_1IaqtjbHdQ0znG7,Other,47,Female,Non-Physician,4,Global,9,High,0,0,0,0,0,0,NA,3,FALSE
+Experiment 3,1,R_XLDP4NzLK0EGpc5,Physician,84,Male,Physician,60,What + Why,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,4,FALSE
+Experiment 3,2,R_XLDP4NzLK0EGpc5,Physician,84,Male,Physician,60,What + Why,9,Low,1,2,3,1,1,-1,0.3333333333333333,3,FALSE
+Experiment 3,1,R_9YMq6jWK94Zvumt,Other,45,Female,Non-Physician,18,Global,5.5,Low,1,1,3,0,0,0,0,1,FALSE
+Experiment 3,2,R_9YMq6jWK94Zvumt,Other,45,Female,Non-Physician,18,Global,9,High,1,0,1,-1,1,1,1,3,FALSE
+Experiment 3,1,R_1d4Q0uWfMACp6xi,Physician,36,Male,Physician,11,What + Why,5.5,Low,2,2,6,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_1d4Q0uWfMACp6xi,Physician,36,Male,Physician,11,What + Why,9,High,0,0,0,0,0,0,NA,4,FALSE
+Experiment 3,1,R_1C4908csR7qbTqh,Physician,36,Male,Physician,10,What + Why + How,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_1C4908csR7qbTqh,Physician,36,Male,Physician,10,What + Why + How,9,High,1,0.5,1,-0.5,0.5,0.5,0.5,1.3333333333333333,FALSE
+Experiment 3,1,R_tLJLIWtzIecHPvb,Physician,48,Male,Physician,10,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_tLJLIWtzIecHPvb,Physician,48,Male,Physician,10,What + Why + How,9,Low,2,3,6,5,5,-1,0.8333333333333334,3.6666666666666665,FALSE
+Experiment 3,1,R_21A1IMquCdH65Kf,Physician,66,Female,Physician,33,What + Why + How,5.5,Low,0.5,0.5,3.5,0,0,0,0,1.6666666666666667,FALSE
+Experiment 3,2,R_21A1IMquCdH65Kf,Physician,66,Female,Physician,33,What + Why + How,9,High,0,0,0,0,0,0,NA,3.3333333333333335,FALSE
+Experiment 3,1,R_2fHjAoUidfr96mE,Physician,66,Male,Physician,42,What + Why + How,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 3,2,R_2fHjAoUidfr96mE,Physician,66,Male,Physician,42,What + Why + How,9,Low,0,0,4,0,0,0,0,2,FALSE
+Experiment 3,1,R_UsbQJT0WgyeGOCR,Physician,41,Male,Physician,15,What,5.5,High,2.5,0.5,2.5,2,2,2,0.8,3,FALSE
+Experiment 3,2,R_UsbQJT0WgyeGOCR,Physician,41,Male,Physician,15,What,9,Low,1,1,5,0,0,0,0,2,FALSE
+Experiment 3,1,R_1K6XHFJN3OqvJu7,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,0,4,4,4,4,-4,1,3.3333333333333335,FALSE
+Experiment 3,2,R_1K6XHFJN3OqvJu7,Other,NA,NA,Non-Physician,NA,What + Why,9,High,0,0,0,0,0,0,NA,3,FALSE
+Experiment 3,1,R_1hKoR4tNrtGDCja,Other,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,2,R_1hKoR4tNrtGDCja,Other,NA,NA,Non-Physician,NA,What + Why + How,9,Low,0,4,4,4,4,-4,1,NA,FALSE
+Experiment 3,1,R_XzCUcDVaXw5fKWB,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,3.6666666666666665,FALSE
+Experiment 3,2,R_XzCUcDVaXw5fKWB,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,0,4,4,4,4,-4,1,NA,FALSE
+Experiment 3,1,R_3sog9veFK7BdOrz,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,3,1.5,7,1.5,1.5,1.5,0.21428571428571427,1.6666666666666667,FALSE
+Experiment 3,2,R_3sog9veFK7BdOrz,Other,NA,NA,Non-Physician,NA,What + Why,9,High,0,0,0,0,0,0,NA,NA,FALSE
+Experiment 3,1,R_RfWeFUt6UhfzceR,Other,NA,NA,Non-Physician,NA,Global,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,3,FALSE
+Experiment 3,2,R_RfWeFUt6UhfzceR,Other,NA,NA,Non-Physician,NA,Global,9,Low,0.5,4,3.5,3.5,3.5,-3.5,1,NA,FALSE
+Experiment 3,1,R_3HoypkSM2bq5OBM,Physician,NA,NA,Physician,NA,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_3HoypkSM2bq5OBM,Physician,NA,NA,Physician,NA,What + Why,9,High,4,0,4,4,4,4,1,NA,FALSE
+Experiment 3,2,R_1rixH3uYdQqS2IC,Physician,NA,NA,Physician,NA,What + Why + How,9,High,1.5,0,1.5,-1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,1,R_01JIUFbcUrhsINz,Other,NA,NA,Non-Physician,NA,What + Why,5.5,High,3,3,3,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_01JIUFbcUrhsINz,Other,NA,NA,Non-Physician,NA,What + Why,9,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_PUqyBqNrDa3bF8l,Other,NA,NA,Non-Physician,NA,What + Why,5.5,High,1.5,0,1.5,-1.5,1.5,1.5,1,1.6666666666666667,FALSE
+Experiment 3,2,R_PUqyBqNrDa3bF8l,Other,NA,NA,Non-Physician,NA,What + Why,9,Low,1.5,1.5,2.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_a2xaV7HAihlPuVz,Physician,NA,NA,Physician,NA,What,9,High,1,1,1,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3CBYhtMUOkOT4ok,Physician,NA,NA,Physician,NA,What + Why + How,5.5,Low,0.5,0.5,3.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_3CBYhtMUOkOT4ok,Physician,NA,NA,Physician,NA,What + Why + How,9,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,2,R_2Cv2Dtag3svL3JC,Pharmacist,NA,NA,Non-Physician,NA,Global,9,High,4,4,4,0,0,0,0,NA,FALSE
+Experiment 3,1,R_33kcx3tzwLWSqnc,Other,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,2.6666666666666665,FALSE
+Experiment 3,2,R_33kcx3tzwLWSqnc,Other,NA,NA,Non-Physician,NA,What + Why + How,9,Low,1,1,5,2,2,0,0.4,NA,FALSE
+Experiment 3,1,R_2D2ADvQyJa2v4wX,Physician,NA,NA,Physician,NA,What + Why,5.5,Low,0.5,0.5,4.5,0,0,0,0,2.3333333333333335,FALSE
+Experiment 3,2,R_2D2ADvQyJa2v4wX,Physician,NA,NA,Physician,NA,What + Why,9,High,1,0.5,1,-0.5,0.5,0.5,0.5,NA,FALSE
+Experiment 3,1,R_26gzYf2zUHwehJE,Physician,NA,NA,Physician,NA,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,1,FALSE
+Experiment 3,2,R_26gzYf2zUHwehJE,Physician,NA,NA,Physician,NA,Global,9,High,0,0,0,0,0,0,NA,NA,FALSE
+Experiment 3,1,R_24IzauZd2T8OdKd,Physician,NA,NA,Physician,NA,What + Why + How,5.5,High,1.5,0.5,1.5,1,1,1,0.6666666666666666,NA,FALSE
+Experiment 3,2,R_24IzauZd2T8OdKd,Physician,NA,NA,Physician,NA,What + Why + How,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_2eOQvnJFqfFywVk,Pharmacist,NA,NA,Non-Physician,NA,Global,5.5,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_2eOQvnJFqfFywVk,Pharmacist,NA,NA,Non-Physician,NA,Global,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_31pjAKrEcNKKNLV,Pharmacist,NA,NA,Non-Physician,NA,Global,5.5,High,3,3,3,0,0,0,0,NA,FALSE
+Experiment 3,2,R_31pjAKrEcNKKNLV,Pharmacist,NA,NA,Non-Physician,NA,Global,9,Low,0,0,4,0,0,0,0,NA,FALSE
+Experiment 3,1,R_1HqgMFqW00YEJSV,Pharmacist,NA,NA,Non-Physician,NA,What,5.5,Low,2.5,1.5,6.5,1,1,1,0.15384615384615385,NA,FALSE
+Experiment 3,2,R_1HqgMFqW00YEJSV,Pharmacist,NA,NA,Non-Physician,NA,What,9,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,1,R_2THTGjPwZ7yKbI5,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_2THTGjPwZ7yKbI5,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_cNfymAF0jZ14jK1,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,6.5,2.5,2.5,-9,9,4,3.6,NA,TRUE
+Experiment 3,2,R_cNfymAF0jZ14jK1,Other,NA,NA,Non-Physician,NA,What + Why,9,High,6,6,6,0,0,0,0,NA,FALSE
+Experiment 3,1,R_XzHZWDVhg2YbfaN,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,3,1.5,3,1.5,1.5,1.5,0.5,NA,FALSE
+Experiment 3,2,R_XzHZWDVhg2YbfaN,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,0,1,4,1,1,-1,0.25,NA,FALSE
+Experiment 3,1,R_2Xj7eDoSoXQ478J,Physician,NA,NA,Physician,NA,What,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_2Xj7eDoSoXQ478J,Physician,NA,NA,Physician,NA,What,9,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_1loDZJh8opNdlkA,Other,NA,NA,Non-Physician,NA,Global,5.5,High,1.5,1,1.5,0.5,0.5,0.5,0.3333333333333333,NA,FALSE
+Experiment 3,2,R_1loDZJh8opNdlkA,Other,NA,NA,Non-Physician,NA,Global,9,Low,1,2.5,3,1.5,1.5,-1.5,0.5,NA,FALSE
+Experiment 3,1,R_31hl8u5wEJ2Jmqs,Physician,NA,NA,Physician,NA,What + Why,5.5,High,1.5,1.5,1.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_31hl8u5wEJ2Jmqs,Physician,NA,NA,Physician,NA,What + Why,9,Low,1,2,5,3,3,-1,0.6,NA,FALSE
+Experiment 3,1,R_xz5ytQ3axMBXUwF,Other,NA,NA,Non-Physician,NA,What,5.5,High,1.5,0.5,1.5,1,1,1,0.6666666666666666,NA,FALSE
+Experiment 3,2,R_xz5ytQ3axMBXUwF,Other,NA,NA,Non-Physician,NA,What,9,Low,5,4,9,9,9,1,1,NA,FALSE
+Experiment 3,1,R_32VLSl9aBAibFZw,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,1,0.5,1,-0.5,0.5,0.5,0.5,NA,FALSE
+Experiment 3,2,R_32VLSl9aBAibFZw,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3R1kay2Nc4kephY,Physician,NA,NA,Physician,NA,Global,5.5,Low,2.5,2.5,6.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_3R1kay2Nc4kephY,Physician,NA,NA,Physician,NA,Global,9,High,4,4,4,0,0,0,0,NA,FALSE
+Experiment 3,1,R_1kYe3pZh8RunzUM,Physician,NA,NA,Physician,NA,What + Why + How,5.5,Low,2.5,2.5,6.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_1kYe3pZh8RunzUM,Physician,NA,NA,Physician,NA,What + Why + How,9,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,1,R_Ulw0FkLbvlBzQAx,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,5,1.5,9,3.5,3.5,3.5,0.3888888888888889,NA,FALSE
+Experiment 3,2,R_Ulw0FkLbvlBzQAx,Other,NA,NA,Non-Physician,NA,What + Why,9,High,4,2,4,2,2,2,0.5,NA,FALSE
+Experiment 3,1,R_2CWxFWnMLP3D1I6,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,2.5,1.5,2.5,1,1,1,0.4,NA,FALSE
+Experiment 3,2,R_2CWxFWnMLP3D1I6,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3nPC4CnSu6Q9CXK,Physician,NA,NA,Physician,NA,Global,5.5,High,3,2.5,3,0.5,0.5,0.5,0.16666666666666666,NA,FALSE
+Experiment 3,2,R_3nPC4CnSu6Q9CXK,Physician,NA,NA,Physician,NA,Global,9,Low,0,2,4,2,2,-2,0.5,NA,FALSE
+Experiment 3,1,R_22RB1W7cMhsEsiM,Physician,NA,NA,Physician,NA,What + Why + How,5.5,Low,2,2,6,0,0,0,0,NA,FALSE
+Experiment 3,2,R_22RB1W7cMhsEsiM,Physician,NA,NA,Physician,NA,What + Why + How,9,High,0,0,0,0,0,0,NA,NA,FALSE
+Experiment 3,1,R_2aPu7XlyrAuKZsX,Physician,NA,NA,Physician,NA,What + Why,5.5,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_2aPu7XlyrAuKZsX,Physician,NA,NA,Physician,NA,What + Why,9,Low,0,3,4,3,3,-3,0.75,NA,FALSE
+Experiment 3,1,R_3QKsIL0zeUuug2R,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,1.5,1.5,1.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_3QKsIL0zeUuug2R,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_3iyBU0ONZ03FNrJ,Physician,NA,NA,Physician,NA,What + Why + How,5.5,Low,3.5,2.5,7.5,1,1,1,0.13333333333333333,NA,FALSE
+Experiment 3,2,R_3iyBU0ONZ03FNrJ,Physician,NA,NA,Physician,NA,What + Why + How,9,High,1,0.5,1,-0.5,0.5,0.5,0.5,NA,FALSE
+Experiment 3,1,R_2qBNjcj0gDQiEsR,Other,NA,NA,Non-Physician,NA,What + Why,5.5,High,1.5,0,1.5,1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,2,R_2qBNjcj0gDQiEsR,Other,NA,NA,Non-Physician,NA,What + Why,9,Low,1.5,4,5.5,5.5,5.5,-2.5,1,NA,FALSE
+Experiment 3,1,R_ONKOjtlzdTToBGN,Pharmacist,NA,NA,Non-Physician,NA,Global,5.5,Low,0.5,0.5,3.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_ONKOjtlzdTToBGN,Pharmacist,NA,NA,Non-Physician,NA,Global,9,High,1.5,1,1.5,-0.5,0.5,0.5,0.3333333333333333,NA,FALSE
+Experiment 3,1,R_2QMQmMt9K7LFF6y,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,5.5,0.5,5.5,5,5,5,0.9090909090909091,NA,FALSE
+Experiment 3,2,R_2QMQmMt9K7LFF6y,Pharmacist,NA,NA,Non-Physician,NA,What + Why,9,Low,0.5,1,3.5,0.5,0.5,-0.5,0.14285714285714285,NA,FALSE
+Experiment 3,1,R_1difsN5cgsv7cvM,Physician,NA,NA,Physician,NA,What,5.5,Low,1,1,5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_1difsN5cgsv7cvM,Physician,NA,NA,Physician,NA,What,9,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,1,R_ZHM5NAyeNnzR625,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,5.5,High,1,1,1,0,0,0,0,NA,FALSE
+Experiment 3,2,R_ZHM5NAyeNnzR625,Pharmacist,NA,NA,Non-Physician,NA,What + Why + How,9,Low,1.5,1.5,2.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_117RUhzllOr6PRl,Physician,NA,NA,Physician,NA,What,5.5,High,0.5,0.5,0.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_117RUhzllOr6PRl,Physician,NA,NA,Physician,NA,What,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_27fWDR9c1ABUH0m,Physician,NA,NA,Physician,NA,Global,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_27fWDR9c1ABUH0m,Physician,NA,NA,Physician,NA,Global,9,High,1.5,0,1.5,1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,1,R_1kUKcQva8YySZ2l,Physician,NA,NA,Physician,NA,What,5.5,High,3,0.5,3,2.5,2.5,2.5,0.8333333333333334,NA,FALSE
+Experiment 3,2,R_1kUKcQva8YySZ2l,Physician,NA,NA,Physician,NA,What,9,Low,0.5,2,3.5,1.5,1.5,-1.5,0.42857142857142855,NA,FALSE
+Experiment 3,1,R_2frgoTJXzQwENgU,Physician,NA,NA,Physician,NA,What + Why,5.5,High,3,0,3,3,3,3,1,NA,FALSE
+Experiment 3,2,R_2frgoTJXzQwENgU,Physician,NA,NA,Physician,NA,What + Why,9,Low,1,1,5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_29uiQDaUWRV6Cq7,Physician,NA,NA,Physician,NA,What + Why + How,5.5,High,1.5,0,1.5,1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,2,R_29uiQDaUWRV6Cq7,Physician,NA,NA,Physician,NA,What + Why + How,9,Low,0,0,4,0,0,0,0,NA,FALSE
+Experiment 3,1,R_33d9e9iNUABdwjg,Other,NA,NA,Non-Physician,NA,What + Why,5.5,Low,3,4,7,7,7,-1,1,NA,FALSE
+Experiment 3,2,R_33d9e9iNUABdwjg,Other,NA,NA,Non-Physician,NA,What + Why,9,High,2,0,2,-2,2,2,1,NA,FALSE
+Experiment 3,2,R_0TCzvA6JwAjx7dn,Other,NA,NA,Non-Physician,NA,What + Why + How,9,Low,1,1,3,0,0,0,0,NA,FALSE
+Experiment 3,1,R_aaUTgLToZrNeWWd,Physician,NA,NA,Physician,NA,What,5.5,Low,2.5,2.5,6.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_aaUTgLToZrNeWWd,Physician,NA,NA,Physician,NA,What,9,High,1,0,1,-1,1,1,1,NA,FALSE
+Experiment 3,1,R_3FKAy6jZs1qoACD,Physician,NA,NA,Physician,NA,What + Why,5.5,Low,1.5,1.5,5.5,0,0,0,0,NA,FALSE
+Experiment 3,2,R_3FKAy6jZs1qoACD,Physician,NA,NA,Physician,NA,What + Why,9,High,0,0,0,0,0,0,NA,NA,FALSE
+Experiment 3,1,R_3Ga25Q1UHUwex18,Other,NA,NA,Non-Physician,NA,Global,5.5,High,5,4.5,5,0.5,0.5,0.5,0.1,NA,FALSE
+Experiment 3,1,R_3O9tzmzsU193IKM,Other,NA,NA,Non-Physician,NA,What,5.5,High,1.5,0,1.5,1.5,1.5,1.5,1,NA,FALSE
+Experiment 3,1,R_PXNN0nU84tdTMGt,Physician,NA,NA,Physician,NA,What + Why,5.5,High,0.5,0,0.5,-0.5,0.5,0.5,1,NA,FALSE
+Experiment 3,1,R_2nu5HFRdcIyeHtv,Other,NA,NA,Non-Physician,NA,What,5.5,Low,0.5,0.5,4.5,0,0,0,0,NA,FALSE
+Experiment 3,1,R_1PaWnshIei20q5s,Other,NA,NA,Non-Physician,NA,What,5.5,Low,5.5,2.5,9.5,3,3,3,0.3157894736842105,NA,FALSE
+Experiment 3,1,R_231O8nhui5pZB66,Physician,NA,NA,Physician,NA,What,5.5,Low,3,0.5,7,2.5,2.5,2.5,0.35714285714285715,NA,FALSE
+Experiment 3,1,R_2ceAD98whAmLvLN,Physician,NA,NA,Physician,NA,What + Why + How,5.5,High,2.5,0,2.5,2.5,2.5,2.5,1,NA,FALSE
+Experiment 3,1,R_eDO0fJHbOrnbkel,Pharmacist,NA,NA,Non-Physician,NA,What + Why,5.5,High,0.5,0,0.5,0.5,0.5,0.5,1,NA,FALSE

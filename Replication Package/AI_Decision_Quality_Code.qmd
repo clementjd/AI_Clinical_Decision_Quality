@@ -1,0 +1,1745 @@
+---
+title: "3_Experiment_Analysis"
+format: html
+editor: visual
+---
+
+## Load Packages and Data
+
+```{r LoadPackages, include=FALSE}
+### LOAD PACKAGES
+# Load packages using pacman
+pacman::p_load(tidyverse,    # A meta-package of data manipulation tools
+               ggdist,       # Additional geoms for plotting visualizations
+               lme4,         # For fitting mixed effect models
+               lmerTest,     # For p-values on mixed effect models
+               emmeans,      # For estimated marginal means and contrasts
+               pwr,          # For power analyses
+               corrplot,     # Correlation plot package
+               psych,        # A range of tests; this script uses corr.test
+               modelsummary, # Presents outputs of regression models
+               effectsize,   # Model interpretation tools
+               gt,           # For making tables
+               gtsummary,    # Makes summary tables
+               gridExtra,    # For arranging plots
+               patchwork,    # For arranging plots
+               here)         # A package for managing filepaths in a flexible way
+
+### SET UP RELATIVE FILEPATHS WITH HERE PACKAGE
+# Identify the file location
+here::i_am("AI_Decision_Quality_Code.qmd")
+
+### SET THEME FOR PLOTS
+theme_jdc <- function() {
+  theme(plot.title = element_text(hjust=0.5, face="bold"),
+              plot.subtitle = element_text(hjust=0.5),
+              plot.background=element_rect(fill="#ffffff"),
+              panel.background=element_rect(fill="#f9f5eb"),
+              panel.grid.minor=element_blank(),
+              panel.grid.major.y=element_blank(),
+              panel.grid.major.x=element_line(),
+              axis.ticks.length = unit(.25, "cm"),
+              axis.title.y = element_text(angle = 0, vjust=0.5),
+              legend.position="bottom",
+              legend.background = element_rect(fill="transparent", colour=NA),
+              legend.key = element_rect(fill="transparent", colour=NA))
+  }
+
+# Function to generate n=numcolors hex codes from a colorblind-friendly pallet
+theme_paultol_colors <- function(numcolors) {
+  color_choices = c("darkblue", "#228833", "#DDAA33", "#BB5566", "#44AA99", "#66CCEE", "#999933")
+  return(color_choices[1:numcolors])
+}
+
+### HELPER FUNCTIONS
+# Rounds number to three digits for prettier tables
+round_to_three <- function(x){round(x, digits = 3)}
+```
+
+### Load Data
+
+Data is prepared by the separate ETL script file.
+
+```{r LoadData}
+exp1_data <- readRDS(here::here("Data", "Experiment_1_Data_Preprocessed.rds")) |>
+  mutate(Experiment = "Experiment 1",
+         Quality = factor(if_else(Explanation == "No AI", "NA", "High"),
+                          levels = c("NA", "Low", "High")),
+         Role = if_else(Role %in% c("Midlevel Provider", "Nurse"), "Other", Role)) |>
+  filter(!str_detect(Explanation, "Conf")) |> # Remove the "confidence" conditions
+  filter(!is.na(DistanceFinal))
+
+exp2_data <- readRDS(here::here("Data", "Experiment_2_Data_Preprocessed.rds")) |>
+  mutate(Experiment = "Experiment 2") |>
+  mutate(Quality = factor(if_else(Explanation == "No AI", "NA", Quality),
+                          levels = c("NA", "Low", "High")),
+         Role = if_else(Role %in% c("Midlevel Provider", "Nurse"), "Other", Role))
+
+exp3_data <- readRDS(here::here("Data", "Experiment_3_Data_Preprocessed.rds")) |>
+  mutate(Experiment = "Experiment 3") |>
+  mutate(Quality = factor(if_else(Explanation == "No AI", "NA", Quality),
+                          levels = c("NA", "Low", "High")),
+         
+         Role = if_else(Role %in% c("Midlevel Provider", "Nurse"), "Other", Role))
+```
+
+## Outlier Analysis
+
+We do not remove outliers, in the interest of a conservative analysis, but we did look at them. Results aren't substantially different if they are removed.
+
+### Experiment 1
+
+```{r}
+### Flag values greater than 10mg from correct answer as outliers and remove NAs
+exp1_data <- exp1_data |>
+  filter(!is.na(DistanceFinal)) |>
+  mutate(Outlier = DistanceFinal >= 10)
+
+### Plot Data
+exp1_data |> ggplot(aes(x = Scenario, y = DistanceFinal, color = Outlier)) +
+  geom_jitter() +
+  facet_grid(~ Explanation)
+
+
+```
+
+### Experiment 2
+
+```{r}
+### Flag items >= 7mg from correct answer or whose WoA is greater than 1
+exp2_data <- exp2_data |>
+  mutate(Outlier = (DistanceFinal >=7 |
+                   (WeightOnAdvice > 1 & !is.na(WeightOnAdvice)) |
+                    WeightOnAdvice < 0 | is.infinite(WeightOnAdvice))
+         )
+
+### Plot Initial and Final Distance
+exp2_data |>
+  ggplot(aes(x = Scenario, y = DistanceInitial, color = Outlier)) +
+  geom_jitter() +
+  facet_grid(Explanation ~ Quality)
+
+exp2_data |>
+  ggplot(aes(x = Scenario, y = DistanceFinal, color = Outlier)) +
+  geom_jitter() +
+  facet_grid(Explanation ~ Quality)
+
+exp2_data |>
+  ggplot(aes(x = Scenario, y = WeightOnAdvice, color = Outlier)) +
+  geom_jitter() +
+  facet_grid(Explanation ~ Quality)
+```
+
+### Experiment 3
+
+```{r}
+exp3_data |> 
+  mutate(Sc = if_else(Scenario == 1, "Starting Dose 7.5mg, Correct Dose 5.5mg",
+                      "Starting Dose 11mg, Correct Dose 9mg")) |>
+  ggplot(aes(x = Explanation, y = InitialDose)) +
+  geom_jitter(aes(color = Quality), alpha = 0.5) +
+  geom_hline(aes(yintercept = CorrectDose)) +
+  geom_hline(aes(yintercept = StartingDose), linetype = 3) +
+  scale_color_manual(values = theme_paultol_colors(2)) +
+  facet_wrap(~ Sc) +
+  theme_jdc()
+
+## Erroneous/Inconsistent Use of Advice
+exp3_data |>
+  mutate(Sc = if_else(Scenario == 1, "Starting Dose 7.5mg, Correct Dose 5.5mg",
+                      "Starting Dose 11mg, Correct Dose 9mg")) |>
+  ggplot(aes(x = Explanation, y = WeightOnAdvice)) +
+  geom_jitter(alpha = 0.5) +
+  facet_wrap(~ Quality) +
+  theme_jdc()
+
+# The three responses with negatives Weight on Advice actually could be using the low-quality advice to improve their decisions (and two of them do...). Evaluating the low-quality recommendation could be helping them reevaluate the factors.
+
+exp3_data <- exp3_data |>
+  mutate(Outlier = case_when((Scenario == 1 & InitialDose > 8)  ~ TRUE,
+                             (Scenario == 2 & InitialDose > 12) ~ TRUE,
+                             WeightOnAdvice > 1 | WeightOnAdvice <0 ~ TRUE,
+                             TRUE ~ FALSE))
+
+table(exp3_data$Outlier)
+```
+
+## Combine Dataframes
+
+This is used for generating the summary stats.
+
+```{r}
+columns_to_select <- c("Experiment", "Scenario", "ResponseId", "Role", "Age", "Gender", "Physician",
+                       "YearsExperience", "Explanation", "CorrectDose", "Quality",
+                       "DistanceFinal", "EmotionalTrust", "Outlier")
+
+exp123_df <- rbind(
+  exp1_data |> select(all_of(columns_to_select)),
+  exp2_data |> select(all_of(columns_to_select)),
+  exp3_data |> select(all_of(columns_to_select))
+) |>
+  mutate(Gender = factor(Gender,
+                         levels = c("Male", "Female",
+                                    "Non binary / transgender / third gender",
+                                    "Not Recorded")),
+         Explanation = factor(Explanation,
+                              levels = c("No AI", "Global", "What", 
+                                         "What + Why", "What + Why + How")))
+
+write_csv(exp123_df, here("Data", "Experiments123_Combined_Data.csv"))
+```
+
+## Summary Stats
+
+Generate a Summary Stats Table
+
+```{r}
+## Summary Table
+summary_stats_table <- tbl_summary(
+  data = exp123_df |>
+    group_by(ResponseId) |>
+    slice_head() |>
+    ungroup() |>
+    select(Role, YearsExperience, Age, Gender, -ResponseId, Experiment),
+  by = Experiment,
+  type = c(Age ~ "continuous",
+           YearsExperience ~ "continuous"),
+  missing_text = "No Answer"
+)
+
+### Display Table
+summary_stats_table
+
+### Save to word
+summary_stats_table |> 
+  as_gt() |> 
+  gt::gtsave(filename = here::here("tbl_summary_stats.docx"))
+
+```
+
+## Experiment 1
+
+### Exp1 Manipulation Check
+
+```{r}
+### Manipulation Check
+exp1_ManipCheck_df <- exp1_data |> 
+  group_by(ResponseId) |>
+  filter(row_number() == 1 & Recommendation ==1) |>
+  select(Reasoning, MeanReasoning) |>
+  ungroup()
+
+exp1_ManipCheck_df |>
+  group_by(Reasoning) |>
+  summarize(GroupMeanReasoning = mean(MeanReasoning, na.rm = TRUE),
+            n = n())
+
+anova(lm(MeanReasoning ~ Reasoning, data = exp1_ManipCheck_df))
+
+### AI vs Control
+lm(DistanceFinal ~ Recommendation, exp1_data) |> summary()
+```
+
+### Exp1 Decision Quality between Scenarios
+
+```{r}
+### Decision Quality between Scenarios
+exp1_data |>
+  filter(!Outlier & Explanation != "No AI") |>
+  group_by(Scenario) |>
+  summarize(n = n(),
+            mean = mean(DistanceFinal, na.rm = TRUE),
+            se = sd(DistanceFinal, na.rm = TRUE)/sqrt(n))
+
+# Test for differences by scenario
+t.test(DistanceFinal ~ Scenario, data = exp1_data |> filter(!Outlier & Explanation != "No AI"))
+```
+
+### Exp1 ANOVA
+
+```{r}
+### Run linear regressions for Experiment 1
+# Only include the AI conditions (don't include base NO AI)
+# Decision Quality
+exp1_dist_lm <- lmer(DistanceFinal ~ Explanation * Role + (1|ResponseId),
+        data = exp1_data |> filter(Explanation != "No AI"))
+
+print("Decision Quality (Final Distance in mg)")
+anova(exp1_dist_lm)
+
+# Emotional Trust
+exp1_trust_lm <- lm(EmotionalTrust ~ Explanation * Role, 
+        data = exp1_data |> filter(Explanation != "No AI" & Scenario == 1))
+
+print("Emotional Trust")
+anova(exp1_trust_lm)
+```
+
+#### Exp1 ANOVA Tables
+
+```{r}
+### ANOVA Table formatting in APA style
+# Overall decision quality and just AI conditions
+rbind(anova(exp1_dist_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp1_dist_lm, partial = TRUE)) |>
+        mutate(DV = "Decision Quality - Just AI",
+               stars = gtools::stars.pval(p.value)),
+      anova(exp1_trust_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(rbind(
+          effectsize::eta_squared(exp1_trust_lm, partial = TRUE),
+          NA)) |> # No Partial eta Sq for the residuals row
+        mutate(DV = "Trust",
+               stars = gtools::stars.pval(p.value),
+               DenDF = 76) |>
+        rename(NumDF = Df)
+      ) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  gt() |>
+  gtsave(here("tbl_Exp1_TABLE_S1.docx"))
+
+```
+
+### Exp1 Figure
+
+```{r}
+### Experiment 1 Figure - Decision Quality
+
+exp1_fig_data <- exp1_data |>
+  filter(!Outlier & !is.na(Role) & Explanation != "No AI") |>
+  group_by(Role, Explanation) |>
+  summarize(n = n(),
+            mean = mean(DistanceFinal, na.rm = TRUE),
+            se = sd(DistanceFinal, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Explanation = factor(if_else(Explanation == "What", "Local\nWhat", Explanation),
+                              levels = c("No AI", "Global", "Local\nWhat")))
+
+fig_exp1_decision_quality <- exp1_fig_data |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("Global" = "darkblue",
+                                  "Local\nWhat" = "#228833")) +
+    scale_x_discrete(labels = c("Other" = "Midlevel\nor Nurse", "Pharmacist" = "Pharmacist", "Physician" = "Physician")) +
+    labs(y = "Distance (mg) from\nCorrect Dose\n(Lower is better)",
+         x = "",
+         color = "AI Explanation") +
+    #scale_y_continuous(limits = c(0, 3.5)) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank())
+
+# Save the figure
+ggsave(here::here("fig_exp1.png"), fig_exp1_decision_quality, width = 5, height = 3)
+```
+
+### Exp1 Trust - Quality Correlation
+
+```{r}
+corr_exp1 <- corr.test(exp1_data |>
+            filter(!Outlier & (Explanation != "No AI")) |>
+            select(EmotionalTrust, DistanceFinal))
+
+print(paste0("r(",corr_exp1$n-2,") = ",
+             round(corr_exp1$r[1,2], 2),
+             ", p=",
+             round(corr_exp1$p[1,2], 4)))
+```
+
+## Experiment 2
+
+### Exp2 Individual Movement Plot
+
+```{r}
+movt_df <- exp2_data |>
+  group_by(Scenario, Quality, Explanation) |>
+  filter(InitialDose <= 12 & !Outlier) |>
+  arrange(InitialDose, Movement, .by_group = TRUE) |>
+  mutate(CorrectDose = if_else(CorrectDose == 4,
+                                 "Scenario 1, Correct Dose 4mg",
+                                 "Scenario 2, Correct Dose 1.5mg"),
+         Quality = if_else(Quality == "Low", "Low Quality Rec", "High Quality Rec"),
+         Explanation = if_else(Explanation == "Global", "Global", "Global + Local What")
+  )
+
+
+movt_df$rowID = as.numeric(rownames(movt_df))
+
+movt_df <- movt_df |>
+  ungroup() |>
+  group_by(CorrectDose, Quality) %>%
+  mutate(rowID = rowID - min(rowID)) |>
+  ungroup()
+
+movt_df_labels <- tribble(
+  ~text,         ~Quality,             ~CorrectDose,                        ~x,    ~y, ~label_hjust,
+  "AI\nRecc",     "Low Quality Rec",    "Scenario 1, Correct Dose 4mg",  8.25, 5, 0,
+  "AI\nRecc",     "Low Quality Rec",    "Scenario 2, Correct Dose 1.5mg",    4.65,    5, 0,
+  "Patient's\nPrior\nDose", "High Quality Rec","Scenario 1, Correct Dose 4mg",6.25, 80, 0,
+  "Patient's\nPrior\nDose", "High Quality Rec","Scenario 2, Correct Dose 1.5mg",3.15,80,0
+  )
+
+fig_exp2_individualmovt <- ggplot() +
+  geom_vline(data = movt_df,
+             aes(xintercept = if_else(CorrectDose == "Scenario 1, Correct Dose 4mg",
+                                      4, 1.5)),
+             color = "gray40") +
+  geom_vline(data = movt_df,
+             aes(xintercept = AIDose), color = "gray40", linetype = 2) +
+  geom_vline(data = movt_df,
+             aes(xintercept = StartingDose), color = "gray40", linetype = 3) +
+  geom_point(data = movt_df,
+             aes(x = InitialDose,
+                 y = rowID,
+                 color = Explanation),
+             size = 1) +
+  geom_point(data = movt_df |> filter(InitialDose != FinalDose),
+             aes(x = FinalDose,
+                 y = rowID,
+                 color = Explanation),
+             size = 2) +
+  geom_segment(data = movt_df %>%
+                 filter(InitialDose - FinalDose > 0),
+               aes(x = InitialDose, xend = FinalDose+0.1,
+                   y = rowID, yend = rowID),
+               arrow = arrow(length = unit(0.02, "npc")),
+               color = "gray20") +
+  geom_segment(data = movt_df %>%
+                 filter(InitialDose - FinalDose < 0),
+               aes(x = InitialDose, xend = FinalDose-0.1,
+                   y = rowID, yend = rowID),
+               arrow = arrow(length = unit(0.02, "npc")),
+               color = "gray20") +
+  geom_text(data = movt_df_labels, aes(x = x, y = y, label = text),
+            color = "gray20", hjust = movt_df_labels$label_hjust) +
+  labs(title = "Individual Decision Adjustment Plot",
+       y = "",
+       x = "Dose Selected (mg)",
+       color = "Explanation Condition") +
+  scale_color_manual(values = theme_paultol_colors(3)) +
+  scale_x_continuous(breaks = seq(0, 12, 2)) +
+  theme_jdc() +
+  theme(axis.title.y = element_text(angle = 0, vjust = 0.5),
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size = 12),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(size = 16),
+        axis.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12)) +
+  facet_grid(Quality ~ CorrectDose, scales = "free_x")
+
+# Export
+ggsave(here::here("fig_exp2_IndividualMovt.png"), fig_exp2_individualmovt, width = 6.5, height = 8)
+```
+
+### Exp2 Differences by Scenario
+
+```{r}
+# Mean Distance from Correct Dose by Scenario
+exp2_data |>
+  filter(!Outlier) |>
+  group_by(Scenario) |>
+  summarize(n = n(),
+            mean = mean(DistanceFinal, na.rm = TRUE),
+            se = sd(DistanceFinal, na.rm = TRUE)/sqrt(n))
+
+# Test for differences by scenario
+t.test(DistanceFinal ~ Scenario, data = exp2_data |> filter(!Outlier))
+```
+
+### Exp2 Qual Analysis
+
+```{r}
+### Summarize by median
+exp2_qual_table <- exp2_data |>
+  filter(!Outlier) |>
+  group_by(Quality) |>
+  summarize(n = n(),
+            Changed = sum(AbsMovement > 0),
+            PctChange = scales::percent(Changed/n, accuracy = 0.1),
+            Improved = sum(Improvement > 0),
+            PctImproved = scales::percent(Improved/Changed, accuracy = 0.1),
+            Increased = sum(Movement > 0)) |>
+  ungroup() |>
+  rename(`No. Obs.` = n) |>
+  mutate(`Changed (%)` = paste0(Changed, " (", PctChange, ")"),
+         `Improved (%)` = paste0(Improved, " (", PctImproved, ")")) |>
+  select(-Changed, -PctChange, -Improved, -PctImproved) |>
+  flextable::regulartable() |>
+  flextable::autofit()
+
+### Export the Table to a Word Doc for Pasting
+word_document_name <-
+    officer::read_docx() |>
+    flextable::body_add_flextable(exp2_qual_table) |>
+    print(target = here::here("tab_exp2_qualtable_TABLE_S3.docx"))
+```
+
+### Exp2 ANOVA
+
+```{r}
+### Run Linear Regressions to then conduct ANOVA
+# Final Decision Quality
+exp2_dist_lm <- lmer(DistanceFinal ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp2_data)
+
+print("Decision Quality (Final Distance in mg)")
+anova(exp2_dist_lm)
+
+# AI Influence measured as Absolute Movement
+exp2_movt_lm <- lmer(AbsMovement ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp2_data)
+
+print("Absolute Movement (Distance in mg)")
+anova(exp2_movt_lm)
+
+# Emotional Trust
+exp2_trust_lm <- lmer(EmotionalTrust ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp2_data)
+
+print("Emotional Trust")
+anova(exp2_trust_lm)
+
+# Emotional Trust by Quality
+exp2_trust_lowqual <- lm(EmotionalTrust ~ Explanation*Role, 
+        data = exp2_data |> filter(Quality == "Low"))
+print("Emotional Trust - Low Quality Only")
+anova(exp2_trust_lowqual)
+
+exp2_trust_hiqual <- lm(EmotionalTrust ~ Explanation*Role, 
+        data = exp2_data |> filter(Quality == "High"))
+print("Emotional Trust - High Quality Only")
+anova(exp2_trust_hiqual)
+
+
+
+# Weight On Advice
+exp2_WoA_lm <- lmer(WeightOnAdvice ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp2_data |> filter(!(is.na(WeightOnAdvice) | is.infinite(WeightOnAdvice))))
+
+anova(exp2_WoA_lm)
+
+# Power analysis for WoA Explanation/Quality
+emm <- emmeans(exp2_WoA_lm, ~ Explanation * Quality)
+pairs_df <- as.data.frame(pairs(emm, adjust = "tukey"))
+sigma_model <- sigma(exp2_WoA_lm) # Residual SD from the model
+n_per_cell  <- mean(table(exp2_data$Quality, exp2_data$Explanation)[2:3,])
+alpha_adj   <- 0.05 / nrow(pairs_df)
+
+pairs_df$cohens_d <- pairs_df$estimate / sigma_model
+
+pairs_df$power <- mapply(function(d, se) {
+  pwr.t.test(n = n_per_cell, d = abs(d),
+             sig.level = alpha_adj, type = "two.sample")$power
+}, pairs_df$cohens_d, pairs_df$SE)
+
+pairs_df$n_needed <- sapply(pairs_df$cohens_d, function(d) {
+  ceiling(pwr.t.test(d = abs(d), sig.level = alpha_adj,
+                     power = 0.80, type = "two.sample")$n)
+})
+pairs_df # Show the results; n_needed is *per cell*
+
+```
+
+#### Exp2 ANOVA Tables
+
+Then build and export tables.
+
+```{r}
+### ANOVA Table formatting in APA style
+rbind(anova(exp2_dist_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp2_dist_lm, partial = TRUE)) |>
+        mutate(DV = "Decision Quality",
+               stars = gtools::stars.pval(p.value)),
+        
+      anova(exp2_movt_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp2_movt_lm, partial = TRUE)) |>
+        mutate(DV = "Decision Change",
+               stars = gtools::stars.pval(p.value)),
+
+      anova(exp2_trust_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp2_trust_lm, partial = TRUE)) |>
+        mutate(DV = "EmotionalTrust",
+               stars = gtools::stars.pval(p.value))
+      ) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  rbind(c(DV = "Decision Quality",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp2_dist_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp2_dist_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp2_dist_lm)^2)/
+                       length(residuals(exp2_dist_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+      rbind(c(DV = "Decision Change",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp2_movt_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp2_movt_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp2_movt_lm)^2)/
+                       length(residuals(exp2_movt_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+      rbind(c(DV = "Trust",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp2_trust_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp2_trust_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp2_trust_lm)^2)/
+                       length(residuals(exp2_trust_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here("tbl_Exp2_ANOVA.docx"))
+
+### Experiment 2 Decision Confidence Table
+anova(exp2_confidence_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp2_confidence_lm, partial = TRUE)) |>
+        mutate(DV = "Decision Conflict",
+               stars = gtools::stars.pval(p.value)) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  rbind(c(DV = "Decision Conflict",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp2_confidence_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp2_confidence_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp2_confidence_lm)^2)/
+                       length(residuals(exp2_confidence_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp2_confidence_ANOVA.docx"))
+
+### Experiment 2 WoA Table
+anova(exp2_WoA_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp2_WoA_lm, partial = TRUE)) |>
+        mutate(DV = "WeightOnAdvice",
+               stars = gtools::stars.pval(p.value)) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  rbind(c(DV = "WeightOnAdvice",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp2_WoA_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp2_WoA_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp2_WoA_lm)^2)/
+                       length(residuals(exp2_WoA_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp2_WoA_ANOVA.docx"))
+
+```
+
+#### Exp2 Pairwise Comparisons
+
+```{r}
+#Pairwise comparisons of trust
+aov(EmotionalTrust ~ Role * Quality,
+    data = exp2_data) |> TukeyHSD()
+
+exp2_data |> group_by(Quality, Role) |> summarize(mean_trust = mean(EmotionalTrust))
+```
+
+### Exp2 Figure
+
+```{r}
+### AI Influence
+fig_exp2_AIinfluence <- exp2_data |>
+  group_by(Quality, Explanation) |>
+  summarize(n = n(),
+            mean = mean(AbsMovement, na.rm = TRUE),
+            se = sd(AbsMovement, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Quality,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("darkblue","#228833"),
+                       labels = c("Global", "Global +\nWhat")) +
+    labs(y = "AI Influence\n(mg)",
+         x = "AI Recommendation Quality",
+         color = "AI Explanation") +
+    ylim(0,1.5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+ggsave(here::here("fig_exp2_AIinfluence.png"), fig_exp2_AIinfluence, width = 5, height = 3)
+
+### Decision Quality
+fig_exp2_decision_quality <- exp2_data |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(DistanceFinal, na.rm = TRUE),
+            se = sd(DistanceFinal, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Quality = factor(Quality,
+                          levels = c("Low", "NA", "High"))) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("Low" = "darkblue",
+                                  "High" = "#228833")) +
+  scale_x_discrete(labels = c("Other" = "Midlevel\nor Nurse", "Pharmacist" = "Pharmacist", "Physician" = "Physician")) +
+    labs(y = "Distance (mg)\nfrom Correct Dose\n(Lower is better)",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel A: Final Decision Quality") +
+    ylim(0,5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank())
+
+### Emotional Trust
+fig_exp2_trust <- exp2_data |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(EmotionalTrust, na.rm = TRUE),
+            se = sd(EmotionalTrust, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Quality = factor(Quality,
+                          levels = c("Low", "NA", "High"))) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("Low" = "darkblue",
+                                  "High" = "#228833")) +
+  scale_x_discrete(labels = c("Other" = "Midlevel\nor Nurse", "Pharmacist" = "Pharmacist", "Physician" = "Physician")) +
+    labs(y = "Trust",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel B: Trust") +
+    ylim(1,5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank())
+
+
+
+
+
+### WeightOfAdvice by Role
+fig_exp2_WoA_by_role <- exp2_data |>
+  filter(!Outlier) |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(WeightOnAdvice, na.rm = TRUE),
+            se = sd(WeightOnAdvice, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Role = if_else(Role == "Other", "Midlevel\nor Nurse", Role)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("Low" = "darkblue",
+                                  "High" = "#228833")) +
+    scale_y_continuous(breaks = seq(0, 1, 0.25),
+                       labels = scales::percent_format(accuracy = 1),
+                       limits = c(-0.05, 1)) +
+    labs(y = "Weight\nof\nAdvice",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel C: AI Influence") +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "bottom")
+
+# Save the figure
+ggsave(here::here("fig_exp2_WoA_Supplement.png"), fig_exp2_WoA_by_role, width = 4, height = 3)
+
+### WoA
+fig_exp2_WoA <- exp2_data |>
+  filter(!Outlier & !is.na(WeightOnAdvice) & !is.infinite(WeightOnAdvice)) |>
+  group_by(Quality, Explanation) |>
+  summarize(n = n(),
+            mean = mean(WeightOnAdvice, na.rm = TRUE),
+            se = sd(WeightOnAdvice, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Quality,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.5)) +
+    scale_color_manual(values = theme_paultol_colors(4)) +
+    labs(y = "Weight\nof\nAdvice",
+         x = "AI Recommendation Quality",
+         color = "AI Explanation") +
+    scale_y_continuous(breaks = seq(0, 1, 0.25),
+                       labels = scales::percent_format(accuracy = 1),
+                       limits = c(0, 1)) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+# Save the figure
+ggsave(here::here("fig_exp2_WoA.png"), fig_exp2_WoA,
+       width = 6, height = 3)
+
+### Combine the figures with the patchwork package
+exp2_figure <- fig_exp2_decision_quality + fig_exp2_trust + fig_exp2_WoA_by_role + 
+  plot_layout(ncol = 3) +
+  plot_layout(guides = "collect") & theme(legend.position = 'bottom')
+
+# Save the figure
+ggsave(here::here("fig_exp2.png"), exp2_figure, width = 9, height = 4)
+
+```
+
+Exp2 Pairwise Comparisons
+
+```{r}
+# Influence
+exp2_data |>
+  group_by(Explanation, Quality) |>
+  summarize(mean(AbsMovement))
+
+aov(AbsMovement ~ Explanation * Quality, data = exp2_data) |> TukeyHSD()
+
+# Decision Quality
+exp2_data |>
+  group_by(Role, Quality) |>
+  summarize(mean(DistanceFinal))
+
+aov(DistanceFinal ~ Quality * Role, exp2_data) |> TukeyHSD()
+```
+
+### Exp2 Trust Alpha/Corr
+
+```{r}
+psych::alpha(exp2_data |>
+               select(EmotionalTrust1, EmotionalTrust2, EmotionalTrust3))$total$raw_alpha
+
+corr_exp2 <- corr.test(exp2_data |>
+            filter(!is.na(EmotionalTrust)) |>
+            select(EmotionalTrust, DistanceFinal))
+
+corr_exp2_high <- corr.test(exp2_data |>
+            filter(!is.na(EmotionalTrust) & Quality == "High") |>
+            select(EmotionalTrust, DistanceFinal))
+
+corr_exp2_low <- corr.test(exp2_data |>
+            filter(!is.na(EmotionalTrust) & Quality == "Low") |>
+            select(EmotionalTrust, DistanceFinal))
+
+print(paste0("Overall r(",corr_exp2$n-2,") = ",
+             round(corr_exp2$r[1,2], 2),
+             ", p=",
+             round(corr_exp2$p[1,2], 4)))
+
+print(paste0("High Quality r(",corr_exp2_high$n-2,") = ",
+             round(corr_exp2_high$r[1,2], 2),
+             ", p=",
+             round(corr_exp2_high$p[1,2], 4)))
+
+print(paste0("Low Quality r(",corr_exp2_low$n-2,") = ",
+             round(corr_exp2_low$r[1,2], 2),
+             ", p=",
+             round(corr_exp2_low$p[1,2], 4)))
+```
+
+## Experiment 3
+
+### Exp 3 Manipulation Checks
+
+```{r ManipCheck, echo=FALSE, message=FALSE, warning=FALSE}
+### Manipulation Checks
+exp3_ManipCheck_df <- exp3_data |> 
+  group_by(ResponseId) |>
+  filter(row_number() == 1)
+
+exp3_ManipChk_aov_What <- aov(ManipCheck_What ~ Exp_What, data = exp3_ManipCheck_df)
+exp3_ManipChk_aov_Why <- aov(ManipCheck_Why ~ Exp_Why, data = exp3_ManipCheck_df)
+exp3_ManipChk_aov_How <- aov(ManipCheck_How ~ Exp_How, data = exp3_ManipCheck_df)
+
+exp3_ManipChk_pvals <- tibble(f = c(1, 2, 3),
+                         p = c(summary(exp3_ManipChk_aov_What)[[1]][["Pr(>F)"]][1],
+                               summary(exp3_ManipChk_aov_Why)[[1]][["Pr(>F)"]][1],
+                               summary(exp3_ManipChk_aov_How)[[1]][["Pr(>F)"]][1]),
+                         x = c(1, 2, 3),
+                         y = rep(1.8, each = 3)) |>
+  mutate(p = case_when(p >= 0.001 ~ paste0("p = ", round(p, 3)),
+                       p < 0.001 ~ "p < 0.001"))
+
+### Tukey HSD
+aov(ManipCheck_What ~ ExpPower, data = exp3_ManipCheck_df) |> TukeyHSD()
+aov(ManipCheck_Why ~ ExpPower, data = exp3_ManipCheck_df) |> TukeyHSD()
+
+### Plot Manip Check
+exp3_ManipCheck_df <- exp3_ManipCheck_df |>
+  select(ExpPower, contains("ManipCheck")) |> 
+  pivot_longer(cols = contains("ManipCheck"),
+               names_to = "ManipCheck",
+               values_to = "Response")
+
+pd <- position_dodge(width = 0.4)
+gray_boxes <- tibble(f = rep(1:3, times = 1, each = 4),
+                     x = rep(c(0.875, 1.25, 2, 2.25, 3.125, 3.25), times = 1, each = 2),
+                     y = c(3.2,     4.7,    4.7,   3.2,
+                           3.5,     4.5,    4.5,   3.5,
+                           3.5,     4.5,    4.5,   3.5))
+
+# Make plot
+ManipChkPlot <- exp3_ManipCheck_df |>
+  group_by(ManipCheck, ExpPower) |>
+  summarise(TotalResponse = mean(Response, na.rm = TRUE),
+            se = sd(Response, na.rm = TRUE)/sqrt(n())) |>
+  mutate(ManipCheck = factor(ManipCheck, levels = c("ManipCheck_What",
+                                                     "ManipCheck_Why",
+                                                     "ManipCheck_How"))) |>
+  ggplot(aes(x = ManipCheck, group = ExpPower)) +
+  geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+  geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+  geom_polygon(data = gray_boxes, aes(x = x, y = y, group = f), fill = "gray90") +
+  geom_pointrange(aes(y = TotalResponse,
+                      ymin = TotalResponse - 1.96 * se,
+                      ymax = TotalResponse + 1.96 * se,
+                      color = ExpPower),
+                  position = position_dodge(0.5)) +
+  geom_text(data = exp3_ManipChk_pvals, aes(x = x, y = y, label = p, group = f)) +
+  labs(y = "Response",
+       x = "Manipulation Check Question",
+       color = "AI Explanation Condition",
+       subtitle = "Conditions in the gray boxes included the relevant information and\nshould read higher than those outside if the manipulation worked",
+       caption = "P-values reported from ANOVA comparing conditions where\ninformation was given to those where it was not.") +
+  ylim(1,5) +
+  scale_x_discrete(labels = c("ManipCheck_How" = "HOW\nRelative importance ...",
+                              "ManipCheck_What" = "WHAT\nWhich factors ...",
+                              "ManipCheck_Why" = "WHY\nWhy factors ...")) +
+  scale_color_manual(values = theme_paultol_colors(4)) +
+  theme_jdc()
+
+# Output plot
+ggsave(plot = ManipChkPlot, filename = here::here("fig_exp3_manip_check.png"),
+       height = 4, width = 5.5)
+
+
+### Manipulation Checks REVISED
+exp3_ManipCheck_df <- exp3_data |> 
+  group_by(ResponseId) |>
+  filter(row_number() == 1)
+
+exp3_ManipChk_aov_What <- aov(ManipCheck_What ~ Exp_What, data = exp3_ManipCheck_df)
+exp3_ManipChk_aov_Why <- aov(ManipCheck_Why ~ Exp_Why, data = exp3_ManipCheck_df)
+exp3_ManipChk_aov_How <- aov(ManipCheck_How ~ Exp_How, data = exp3_ManipCheck_df)
+
+exp3_ManipChk_pvals <- tibble(f = c(1, 2, 3),
+                         p = c(summary(exp3_ManipChk_aov_What)[[1]][["Pr(>F)"]][1],
+                               summary(exp3_ManipChk_aov_Why)[[1]][["Pr(>F)"]][1],
+                               summary(exp3_ManipChk_aov_How)[[1]][["Pr(>F)"]][1]),
+                         x = c(1, 2, 3),
+                         y = rep(1.8, each = 3)) |>
+  mutate(p = case_when(p >= 0.001 ~ paste0("p = ", round(p, 3)),
+                       p < 0.001 ~ "p < 0.001"))
+
+### Tukey HSD
+aov(ManipCheck_What ~ ExpPower, data = exp3_ManipCheck_df) |> TukeyHSD()
+aov(ManipCheck_Why ~ ExpPower, data = exp3_ManipCheck_df) |> TukeyHSD()
+
+### Plot Manip Check
+exp3_ManipCheck_df <- exp3_ManipCheck_df |>
+  select(ExpPower, contains("ManipCheck")) |> 
+  pivot_longer(cols = contains("ManipCheck"),
+               names_to = "ManipCheck",
+               values_to = "Response")
+
+pd <- position_dodge(width = 0.4)
+gray_boxes <- tibble(f = rep(1:3, times = 1, each = 4),
+                     x = rep(c(0.875, 1.25, 2, 2.25, 3.125, 3.25), times = 1, each = 2),
+                     y = c(3.2,     4.7,    4.7,   3.2,
+                           3.5,     4.5,    4.5,   3.5,
+                           3.5,     4.5,    4.5,   3.5))
+
+# Make plot
+ManipChkPlot2 <- exp3_ManipCheck_df |>
+  group_by(ManipCheck, ExpPower) |>
+  summarise(TotalResponse = mean(Response, na.rm = TRUE),
+            se = sd(Response, na.rm = TRUE)/sqrt(n())) |>
+  mutate(
+         ManipCheck = factor(ManipCheck, levels = c("ManipCheck_What",
+                                                     "ManipCheck_Why",
+                                                     "ManipCheck_How"))) |>
+  ggplot(aes(x = ExpPower, group = ManipCheck)) +
+  geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+  geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+  geom_pointrange(aes(y = TotalResponse,
+                      ymin = TotalResponse - 1.96 * se,
+                      ymax = TotalResponse + 1.96 * se,
+                      color = ManipCheck),
+                  position = position_dodge(0.5)) +
+  labs(y = "Response",
+       x = "AI Explanation Condition",
+       color = "Manipulation Check Question") +
+  ylim(1,5) +
+  scale_x_discrete(labels = c("1" = "Global\nExplanation...",
+                              "2" = "+ Local \nWhat...",
+                              "3" = "+ What...",
+                              "4" = "+ How")) +
+  scale_color_manual(values = theme_paultol_colors(3),
+                     labels = c("What", "Why", "How")) +
+  theme_jdc()
+
+# Output plot
+ggsave(plot = ManipChkPlot2, filename = here::here("fig_exp3_manip_check_altversion.png"),
+       height = 4, width = 5.5)
+```
+
+### Exp3 Initial Judgment by Role
+
+```{r}
+### Initial Judgment by Role
+fig_exp3_initaljudgments <- exp3_data |>
+  group_by(Role) |>
+  summarize(n = n(),
+            mean = mean(DistanceInitial, na.rm = TRUE),
+            se = sd(DistanceInitial, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_pointrange(position = position_dodge(0.4),
+                    color = theme_paultol_colors(1)) +
+    labs(y = "Distance (mg)\nfrom Correct Dose\n(Lower is better)",
+         x = "",
+         title = "Initial Decision Quality (before viewing AI)") +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank())
+
+# Save the figure
+ggsave(here::here("fig_exp3_initaljudgments.png"), fig_exp3_initaljudgments,
+       width = 6, height = 3)
+
+aov(lm(DistanceInitial ~ Role, data = exp3_data)) |> TukeyHSD()
+aov(lm(DistanceInitial ~ Qualifications, data = exp3_data)) |> TukeyHSD()
+
+```
+
+### Exp3 Qual Movements
+
+```{r}
+### Summarize by median
+exp3_qual_table <- exp3_data |>
+  filter(!Outlier) |>
+  group_by(Scenario, Quality) |>
+  summarize(n = n(),
+            Changed = sum(AbsMovement > 0),
+            PctChange = scales::percent(Changed/n, accuracy = 0.1),
+            Improved = sum(Improvement > 0),
+            PctImproved = scales::percent(Improved/n, accuracy = 0.1)
+            ) |>
+  ungroup() |>
+  rename(`No. Obs.` = n) |>
+  mutate(`Changed (%)` = paste0(Changed, " (", PctChange, ")"),
+         `Improved (%)` = paste0(Improved, " (", PctImproved, ")")
+  ) |>
+  select(-Changed, -PctChange, -Improved, -PctImproved) |>
+  flextable::regulartable() |>
+  flextable::autofit()
+
+### Export the Table to a Word Doc for Pasting
+word_document_name <-
+    officer::read_docx() |>
+    flextable::body_add_flextable(exp3_qual_table) |>
+    print(target = here::here("tab_exp3_qualtable.docx"))
+```
+
+### Exp3 Individual Movements
+
+```{r}
+movt_df <- exp3_data |>
+  group_by(Scenario, Quality, Explanation) |>
+  filter(InitialDose <= 12 & !Outlier) |>
+  arrange(InitialDose, Movement, .by_group = TRUE) |>
+  mutate(CorrectDose = if_else(CorrectDose == 5.5,
+                                 "Scenario 1, Correct Dose 5.5mg",
+                                 "Scenario 2, Correct Dose 9mg"),
+         Quality = if_else(Quality == "Low", "Low Quality Rec", "High Quality Rec")
+  )
+
+
+movt_df$rowID = as.numeric(rownames(movt_df))
+
+movt_df <- movt_df |>
+  ungroup() |>
+  group_by(CorrectDose, Quality) %>%
+  mutate(rowID = rowID - min(rowID)) |>
+  ungroup()
+
+movt_df_labels <- tribble(
+  ~text,         ~Quality,             ~CorrectDose,                        ~x,    ~y, ~label_hjust,
+  "AI Recc",     "Low Quality Rec",    "Scenario 1, Correct Dose 5.5mg",  12, 3, 1,
+  "AI Recc",     "Low Quality Rec",    "Scenario 2, Correct Dose 9mg",    12.8,    3, 1,
+  "Patient's\nPrior\nDose", "High Quality Rec","Scenario 1, Correct Dose 5.5mg",7.7,80, 0,
+  "Patient's\nPrior\nDose", "High Quality Rec","Scenario 2, Correct Dose 9mg",11.2,80,0
+  )
+
+ggplot() +
+  geom_vline(data = movt_df,
+             aes(xintercept = if_else(CorrectDose == "Scenario 1, Correct Dose 5.5mg",
+                                      5.5, 9)),
+             color = "gray40") +
+  geom_vline(data = movt_df,
+             aes(xintercept = AIDose), color = "gray40", linetype = 2) +
+  geom_vline(data = movt_df,
+             aes(xintercept = StartingDose), color = "gray40", linetype = 3) +
+  geom_point(data = movt_df,
+             aes(x = InitialDose,
+                 y = rowID,
+                 color = Explanation),
+             size = 1) +
+  geom_point(data = movt_df |> filter(InitialDose != FinalDose),
+             aes(x = FinalDose,
+                 y = rowID,
+                 color = Explanation),
+             size = 2) +
+  geom_segment(data = movt_df %>%
+                 filter(InitialDose - FinalDose > 0),
+               aes(x = InitialDose, xend = FinalDose+0.1,
+                   y = rowID, yend = rowID),
+               arrow = arrow(length = unit(0.02, "npc")),
+               color = "gray20") +
+  geom_segment(data = movt_df %>%
+                 filter(InitialDose - FinalDose < 0),
+               aes(x = InitialDose, xend = FinalDose-0.1,
+                   y = rowID, yend = rowID),
+               arrow = arrow(length = unit(0.02, "npc")),
+               color = "gray20") +
+  geom_text(data = movt_df_labels, aes(x = x, y = y, label = text),
+            color = "gray20", hjust = movt_df_labels$label_hjust) +
+  labs(title = "Individual Decision Adjustment Plot",
+       y = "",
+       x = "Dose Selected (mg)",
+       color = "Explanation Condition") +
+  scale_color_manual(values = theme_paultol_colors(4)) +
+  scale_x_continuous(breaks = seq(0, 12, 2)) +
+  theme_jdc() +
+  theme(axis.title.y = element_text(angle = 0, vjust = 0.5),
+        axis.text.y = element_blank(),
+        axis.text.x = element_text(size = 12),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(size = 16),
+        axis.title = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12)) +
+  facet_grid(Quality ~ CorrectDose, scales = "free_x")
+```
+
+### Exp3 ANOVA
+
+```{r}
+### Run Linear Regressions to then conduct ANOVA
+# Final Decision Quality
+exp3_dist_lm <- lmer(DistanceFinal ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+
+print("Decision Quality (Final Distance in mg)")
+anova(exp3_dist_lm)
+
+# AI Influence measured as Absolute Movement
+exp3_movt_lm <- lmer(AbsMovement ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+
+print("Absolute Movement (Distance in mg)")
+anova(exp3_movt_lm)
+
+# Trust
+exp3_trust_lm <- lmer(EmotionalTrust ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+
+# Improvement
+exp3_improvement_lm <- lmer(Improvement ~ Explanation + Quality + Role + Scenario +
+      Explanation:Quality +  Explanation:Role + Explanation:Scenario +
+        Quality:Role + Quality:Scenario + Role:Scenario + (1|ResponseId), 
+        data = exp3_data)
+
+print("Improvement")
+anova(exp3_improvement_lm)
+
+# Decision Conflict
+exp3_conflict_lm <- lmer(DecisionConflict ~ Explanation + Quality + Role +
+      Explanation:Quality +  Explanation:Role +
+        Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+anova(exp3_conflict_lm)
+
+# Quality with Emotional Trust as a Moderator
+exp3_dist_trust_lm <- lmer(DistanceFinal ~ Explanation + Quality + Role + EmotionalTrust
++        Explanation:Quality + Explanation:Role + Quality:Role + EmotionalTrust:Quality + EmotionalTrust:Role + (1|ResponseId), 
+        data = exp3_data)
+
+print("Decision Quality (Final Distance in mg) w/ Trust as Moderator")
+anova(exp3_dist_trust_lm)
+
+### Add Scenario
+# AI Influence
+exp3_scenario_movt_lm <- lm(AbsMovement ~ Explanation + Quality + Role + Scenario +
+      Explanation:Quality +  Explanation:Role + Explanation:Scenario +
+        Quality:Role + Quality:Scenario + Role:Scenario, 
+        data = exp3_data)
+
+# Decision Quality
+exp3_scenario_dist_lm <- lm(DistanceFinal ~ Explanation + Quality + Role + Scenario +
+      Explanation:Quality +  Explanation:Role + Explanation:Scenario +
+        Quality:Role + Quality:Scenario + Role:Scenario, 
+        data = exp3_data)
+
+
+# By Role
+aov(DistanceFinal ~ Role, data = exp3_data) |> TukeyHSD()
+
+exp3_data |>
+  group_by(Role) |>
+  summarize(mean_DistanceFinal = mean(DistanceFinal))
+
+### ANALYSES ADDED FOR REVIEW
+# Weight On Advice
+exp3_WoA_lm <- lmer(WeightOnAdvice ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+
+anova(exp3_WoA_lm)
+
+# Pairwise Comparisons
+aov(WeightOnAdvice ~ Role * Quality, data = exp3_data) |> TukeyHSD()
+aov(WeightOnAdvice ~ Explanation * Quality, data = exp3_data) |> TukeyHSD()
+
+# Difference in WoA between low and high quality.
+exp3_data |>
+  group_by(Quality) |>
+  summarize(mean_WoA = mean(WeightOnAdvice, na.rm = TRUE))
+
+# Power analysis for WoA Explanation/Quality
+emm <- emmeans(exp3_WoA_lm, ~ Explanation * Quality)
+pairs_df <- as.data.frame(pairs(emm, adjust = "tukey"))
+sigma_model <- sigma(exp3_WoA_lm) # Residual SD from the model
+n_per_cell  <- mean(table(exp3_data$Quality, exp3_data$Explanation)[2:3,])
+alpha_adj   <- 0.05 / nrow(pairs_df)
+
+pairs_df$cohens_d <- pairs_df$estimate / sigma_model
+
+pairs_df$power <- mapply(function(d, se) {
+  pwr.t.test(n = n_per_cell, d = abs(d),
+             sig.level = alpha_adj, type = "two.sample")$power
+}, pairs_df$cohens_d, pairs_df$SE)
+
+pairs_df$n_needed <- sapply(pairs_df$cohens_d, function(d) {
+  ceiling(pwr.t.test(d = abs(d), sig.level = alpha_adj,
+                     power = 0.80, type = "two.sample")$n)
+})
+pairs_df # Show the results; n_needed is *per cell*
+
+
+# Final Decision Quality w/ add'l controls
+exp3_dist_w_controls_lm <- lmer(DistanceFinal ~ Explanation + Quality + Role +
+        Explanation:Quality + Explanation:Role + Quality:Role + Age + Gender + YearsExperience + (1|ResponseId), 
+        data = exp3_data)
+
+print("Decision Quality (Final Distance in mg) w/ controls")
+anova(exp3_dist_w_controls_lm)
+
+# Individual Trust Items
+exp3_trust1_lm <- lmer(EmotionalTrust_1 ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+exp3_trust2_lm <- lmer(EmotionalTrust_2 ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+exp3_trust3_lm <- lmer(EmotionalTrust_3 ~ Explanation + Quality + Role +
++        Explanation:Quality + Explanation:Role + Quality:Role + (1|ResponseId), 
+        data = exp3_data)
+
+anova(exp3_trust1_lm)
+anova(exp3_trust2_lm)
+anova(exp3_trust3_lm)
+
+# Correlation Table Among Trust Items and Decision Quality
+cor(exp3_data |> 
+        select(DistanceFinal, EmotionalTrust_1,
+               EmotionalTrust_2, EmotionalTrust_3),
+    use = "pairwise.complete.obs") |>
+  as.data.frame() |>
+  round_to_three() |>
+  gt() |>
+  gtsave(here("tbl_Exp3_TRUST_QUALITY_TABLE.docx"))
+
+```
+
+#### Exp3 ANOVA Tables
+
+```{r}
+### ANOVA Table formatting in APA style
+rbind(anova(exp3_dist_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp3_dist_lm, partial = TRUE)) |>
+        mutate(DV = "Decision Quality",
+               stars = gtools::stars.pval(p.value)),
+      anova(exp3_movt_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp3_movt_lm, partial = TRUE)) |>
+        mutate(DV = "Influence",
+               stars = gtools::stars.pval(p.value))
+      ) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+    rbind(c(DV = "Decision Quality",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp3_dist_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp3_dist_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp3_dist_lm)^2)/
+                       length(residuals(exp3_dist_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+      rbind(c(DV = "Influence",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp3_movt_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp3_movt_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp3_movt_lm)^2)/
+                       length(residuals(exp3_movt_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here("tbl_Exp3_ANOVA.docx"))
+
+### Experiment 3 Trust Table
+rbind(anova(exp3_trust_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp3_trust_lm, partial = TRUE)) |>
+        mutate(DV = "Emotional Trust",
+               stars = gtools::stars.pval(p.value))
+      ) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  
+      rbind(c(DV = "Trust",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp3_trust_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp3_trust_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp3_trust_lm)^2)/
+                       length(residuals(exp3_trust_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp3_trust_ANOVA.docx"))
+
+### Experiment 3 WoA Table
+anova(exp3_WoA_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp3_WoA_lm, partial = TRUE)) |>
+        mutate(DV = "WeightOnAdvice",
+               stars = gtools::stars.pval(p.value)) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial) |>
+  rbind(c(DV = "WeightOnAdvice",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp3_WoA_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp3_WoA_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp3_WoA_lm)^2)/
+                       length(residuals(exp3_WoA_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp3_WoA_ANOVA.docx"))
+
+### Improvement Table for Appendix
+anova(exp3_improvement_lm) |>
+        rename(p.value = `Pr(>F)`) |>
+        cbind(effectsize::eta_squared(exp3_improvement_lm, partial = TRUE)) |>
+        mutate(DV = "Improvement",
+               stars = gtools::stars.pval(p.value)) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, Parameter, `Sum Sq`, NumDF, DenDF, `Mean Sq`,
+         `F value`, p.value, Eta2_partial)  |>
+  rbind(c(DV = "Improvement",
+        Parameter = paste0("Residuals (N = ", length(residuals(exp3_improvement_lm)), ")"),
+        `Sum Sq` = sum(residuals(exp3_improvement_lm)^2) |> round_to_three(),
+        NumDF = NA,
+        DenDF = NA,
+        `Mean Sq` = (sum(residuals(exp3_improvement_lm)^2)/
+                       length(residuals(exp3_improvement_lm))) |> round_to_three(),
+        `F Value` = NA,
+        p.value = NA,
+        Eta2_partial = NA
+        )) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp3_improvement_ANOVA.docx"))
+
+### Scenario Table for Appendix
+rbind(sjstats::anova_stats(car::Anova(exp3_scenario_movt_lm, type = 3)) |>
+        mutate(DV = "Influence",
+               stars = gtools::stars.pval(p.value)),
+      sjstats::anova_stats(car::Anova(exp3_scenario_dist_lm, type = 3)) |>
+        mutate(DV = "Decision Quality",
+               stars = gtools::stars.pval(p.value))
+      ) |>
+  mutate_if(is.numeric, round_to_three) |>
+  mutate(p.value = paste(p.value, stars)) |>
+  select(DV, term, sumsq, df, meansq,
+         `F stat`=statistic, p.value, partial.etasq) |>
+  gt() |>
+  gtsave(here::here("tbl_Exp3_Scenario_ANOVA.docx"))
+```
+
+### Exp3 Figures
+
+```{r}
+### AI Influence
+fig_exp3_AIinfluence <- exp3_data |>
+  group_by(Quality, Explanation) |>
+  summarize(n = n(),
+            mean = mean(AbsMovement, na.rm = TRUE),
+            se = sd(AbsMovement, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Quality,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.5)) +
+    scale_color_manual(values = theme_paultol_colors(4)) +
+    labs(y = "AI Influence\n(mg)",
+         x = "AI Recommendation Quality",
+         color = "AI Explanation") +
+    ylim(0,2) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+# Save the figure
+ggsave(here::here("fig_exp3_AIinfluence.png"), fig_exp3_AIinfluence,
+       width = 6, height = 3)
+
+### WoA
+fig_exp3_WoA <- exp3_data |>
+  group_by(Quality, Explanation) |>
+  summarize(n = n(),
+            mean = mean(WeightOnAdvice, na.rm = TRUE),
+            se = sd(WeightOnAdvice, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Quality,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.5)) +
+    scale_color_manual(values = theme_paultol_colors(4)) +
+    labs(y = "Weight\nof\nAdvice",
+         x = "AI Recommendation Quality",
+         color = "AI Explanation") +
+    scale_y_continuous(breaks = seq(0, 1, 0.25),
+                       labels = scales::percent_format(accuracy = 1),
+                       limits = c(0, 1)) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+# Save the figure
+ggsave(here::here("fig_exp3_WoA.png"), fig_exp3_WoA,
+       width = 6, height = 3)
+
+### AI Influence & Decision Quality by Role
+fig_exp3_dist_by_role <- exp3_data |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(DistanceFinal, na.rm = TRUE),
+            se = sd(DistanceFinal, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Role = if_else(Role == "Other", "Midlevel\nor Nurse", Role)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = theme_paultol_colors(2)) +
+    labs(y = "Distance (mg)\nfrom Correct Dose\n(Lower is better)",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel A: Decision Quality") +
+    ylim(0,2.5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "bottom")
+
+fig_exp3_AIinfluence_by_role <- exp3_data |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(AbsMovement, na.rm = TRUE),
+            se = sd(AbsMovement, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Role = if_else(Role == "Other", "Midlevel\nor Nurse", Role)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = theme_paultol_colors(2)) +
+    labs(y = "Decision Change\n(mg)",
+         x = "Clinical Role",
+         color = "AI Quality") +
+    ylim(0,2.5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "bottom")
+
+# Save the figure
+ggsave(here::here("fig_exp3_DecisionChangebyRole.png"), fig_exp3_AIinfluence_by_role,
+       width = 4, height = 3)
+
+### WeightOfAdvice by Role
+fig_exp3_WoA_by_role <- exp3_data |>
+  filter(!Outlier) |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(WeightOnAdvice, na.rm = TRUE),
+            se = sd(WeightOnAdvice, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Role = if_else(Role == "Other", "Midlevel\nor Nurse", Role)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 0), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = theme_paultol_colors(2)) +
+    scale_y_continuous(breaks = seq(0, 1, 0.25),
+                       labels = scales::percent_format(accuracy = 1),
+                       limits = c(0, 1)) +
+    labs(y = "Weight\nof\nAdvice",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel C: AI Influence") +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "bottom")
+
+# Save the figure
+ggsave(here::here("fig_exp3_WoA.png"), fig_exp3_WoA_by_role, width = 4, height = 3)
+
+### Emotional Trust by Role
+fig_exp3_Trust_by_role <- exp3_data |>
+  filter(!Outlier) |>
+  group_by(Quality, Role) |>
+  summarize(n = n(),
+            mean = mean(EmotionalTrust, na.rm = TRUE),
+            se = sd(EmotionalTrust, na.rm = TRUE)/sqrt(n)) |>
+  mutate(Role = if_else(Role == "Other", "Midlevel\nor Nurse", Role)) |>
+  ggplot(aes(x = Role,
+             y = mean,
+             color = Quality,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.4)) +
+    scale_color_manual(values = c("Low" = "darkblue",
+                                  "High" = "#228833")) +
+  scale_x_discrete(labels = c("Other" = "Midlevel\nor Nurse", "Pharmacist" = "Pharmacist", "Physician" = "Physician")) +
+    labs(y = "Trust",
+         x = "Clinical Role",
+         color = "AI Quality",
+         subtitle = "Panel B: Trust") +
+    ylim(1,5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank())
+
+# Combine Plots
+exp3_figure <- fig_exp3_dist_by_role + fig_exp3_Trust_by_role + fig_exp3_WoA_by_role + 
+  plot_layout(ncol = 3) +
+  plot_layout(guides = "collect") & theme(legend.position = 'bottom')
+
+# Save the figure
+ggsave(here::here("fig_exp3.png"), exp3_figure, width = 9, height = 4)
+
+```
+
+### Exp3 Emotional Trust
+
+```{r}
+# Chronbach's Alpha
+psych::alpha(exp3_data |>
+               filter(!is.na(EmotionalTrust)) |>
+               select(EmotionalTrust_1, EmotionalTrust_2, EmotionalTrust_3))$total$raw_alpha
+
+corr_exp3 <- corr.test(exp3_data |>
+            filter(!is.na(EmotionalTrust)) |>
+            select(EmotionalTrust, DistanceFinal))
+
+corr_exp3_high <- corr.test(exp3_data |>
+            filter(!is.na(EmotionalTrust) & Quality == "High") |>
+            select(EmotionalTrust, DistanceFinal))
+
+corr_exp3_low <- corr.test(exp3_data |>
+            filter(!is.na(EmotionalTrust) & Quality == "Low") |>
+            select(EmotionalTrust, DistanceFinal))
+
+print(paste0("Overall r(",corr_exp3$n-2,") = ",
+             round(corr_exp3$r[1,2], 2),
+             ", p=",
+             round(corr_exp3$p[1,2], 4)))
+
+print(paste0("High Quality r(",corr_exp3_high$n-2,") = ",
+             round(corr_exp3_high$r[1,2], 2),
+             ", p=",
+             round(corr_exp3_high$p[1,2], 4)))
+
+print(paste0("Low Quality r(",corr_exp3_low$n-2,") = ",
+             round(corr_exp3_low$r[1,2], 2),
+             ", p=",
+             round(corr_exp3_low$p[1,2], 4)))
+
+### AI Trust by Explanation and Quality Figure
+fig_exp3_trust_explanation_quality <- exp3_data |>
+  group_by(Quality, Explanation) |>
+  summarize(n = n(),
+            mean = mean(EmotionalTrust, na.rm = TRUE),
+            se = sd(EmotionalTrust, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Quality,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.5)) +
+    scale_color_manual(values = theme_paultol_colors(4)) +
+    labs(y = "Trust",
+         x = "AI Recommendation Quality",
+         color = "AI Explanation") +
+    ylim(1,5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+### AI Trust by Explanation Figure
+fig_exp3_trust <- exp3_data |>
+  group_by(Explanation) |>
+  summarize(n = n(),
+            mean = mean(EmotionalTrust, na.rm = TRUE),
+            se = sd(EmotionalTrust, na.rm = TRUE)/sqrt(n)) |>
+  ggplot(aes(x = Explanation,
+             y = mean,
+             color = Explanation,
+             ymin = mean - 1.96 * se,
+             ymax = mean + 1.96 * se)) +
+    geom_hline(aes(yintercept = 1), color = "#D6D4CD") +
+    geom_hline(aes(yintercept = 5), color = "#D6D4CD") +
+    geom_pointrange(position = position_dodge(0.5)) +
+    scale_color_manual(values = theme_paultol_colors(4)) +
+    scale_x_discrete(labels = c("Global",
+                                "What",
+                                "What +\nWhy",
+                                "What +\nWhy +\nHow")) +
+    labs(y = "Trust",
+         x = "AI Explanation",
+         color = "") +
+    ylim(1,5) +
+    theme_jdc() +
+    theme(axis.title.y = element_text(angle = 0),
+          axis.ticks.y = element_blank(),
+          legend.position = "right")
+
+
+# Save the figure
+ggsave(here::here("fig_exp3_trust.png"), fig_exp3_trust,
+       width = 4, height = 3)
+
+
+# Emotional trust by Quality
+exp3_data |>
+  group_by(Quality) |>
+  summarize(mean_EmotionalTrust = mean(EmotionalTrust, na.rm = TRUE))
+
+aov(EmotionalTrust ~ Quality, data = exp3_data) |> TukeyHSD()
+
+# Emotional trust by Explanation
+exp3_data |>
+  group_by(Explanation) |>
+  summarize(mean_EmotionalTrust = mean(EmotionalTrust, na.rm = TRUE))
+
+aov(EmotionalTrust ~ Explanation, data = exp3_data) |> TukeyHSD()
+
+```
